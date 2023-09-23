@@ -1,0 +1,13 @@
+@import "reset";
+
+@import "colors";
+
+body {
+  padding-top: 2rem;
+  padding-bottom: 64px;
+  padding-inline: 60px;
+}
+
+span.red {
+  color: $red;
+}

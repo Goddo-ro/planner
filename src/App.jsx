@@ -1,7 +1,9 @@
+import Header from "./components/UI/Header/Header.jsx";
+
 function App() {
   return (
     <>
-      Hello, world!
+      <Header/>
     </>
   )
 }

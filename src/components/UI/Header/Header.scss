@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  .header__left {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+
+  .logo__img {
+    height: 31px;
+    width: 53px;
+    background: url("/logo.svg") no-repeat center;
+  }
+}
