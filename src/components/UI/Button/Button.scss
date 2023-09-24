@@ -1,0 +1,43 @@
+@import "src/assets/styles/colors";
+
+.btn {
+  display: block;
+  padding: 21px 32px;
+  color: $main-colors-white;
+  background: $main-colors-black;
+  border: 1px solid $main-colors-black;
+  border-radius: 12px;
+  font-size: 18px;
+  transition: all .2s;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: transparent;
+    color: $main-colors-black;
+  }
+}
+
+.btn_red {
+  border-color: $main-colors-accent;
+  background-color: $main-colors-accent;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $main-colors-accent;
+  }
+}
+
+.btn_disabled {
+  border-color: $gray;
+  background-color: $gray;
+  color: $dark-gray;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $dark-gray;
+   background-color: $gray;
+  }
+}

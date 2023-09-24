@@ -1,4 +1,5 @@
 import "./Header.scss";
+import User from "../User/User.jsx";
 
 const Header = () => {
   return (
@@ -12,6 +13,7 @@ const Header = () => {
           planner <span className="red">event</span>
         </h1>
       </div>
+      <User/>
     </header>
   )
 }

@@ -2,6 +2,10 @@
 
 @import "colors";
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   padding-top: 2rem;
   padding-bottom: 64px;
@@ -9,5 +13,5 @@ body {
 }
 
 span.red {
-  color: $red;
+  color: $main-colors-accent;
 }
