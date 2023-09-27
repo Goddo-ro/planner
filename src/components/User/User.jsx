@@ -1,9 +1,10 @@
 import Button from "../UI/Button/Button.jsx";
+import { openEmail } from "../../store/modals.js";
 
 const User = () => {
   return (
     <div>
-      <Button>Войти</Button>
+      <Button onClick={openEmail}>Войти</Button>
     </div>
   )
 }
