@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 @import "reset";
 
 @import "colors";
 
 * {
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  color: $main-colors-black;
 }
 
 body {
@@ -14,4 +18,23 @@ body {
 
 span.red {
   color: $main-colors-accent;
+}
+
+.h1 {
+  font-size: 64px;
+  font-weight: bold;
+  line-height: 120%;
+  letter-spacing: -2.56px;
+}
+
+.h2 {
+  font-size: 36px;
+  line-height: 100%;
+  letter-spacing: -0.72px;
+}
+
+.h3 {
+  font-size: 26px;
+  line-height: 120%;
+  letter-spacing: -0.52px;
 }

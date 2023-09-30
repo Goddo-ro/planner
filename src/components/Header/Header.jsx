@@ -7,9 +7,9 @@ const Header = () => {
       <div className="header__left">
         <a href="/" className="logo">
           <span className="logo__img"></span>
-          <span className="logo__company">red collar</span>
+          <span className="logo__company h3">red collar</span>
         </a>
-        <h1 className="header__title">
+        <h1 className="header__title h1">
           planner <span className="red">event</span>
         </h1>
       </div>
