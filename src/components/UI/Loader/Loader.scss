@@ -1,0 +1,17 @@
+@import "src/assets/styles/colors";
+
+.loader {
+  margin-inline: auto;
+  border-radius: 58%;
+  border: 3px dashed $main-colors-white;
+  animation: rotate 5s infinite linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+  to {
+    transform: rotate(360deg) scale(1.4);
+  }
+}

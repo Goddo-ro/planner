@@ -5,20 +5,34 @@ import Button from "./UI/Button/Button.jsx";
 import Form from "./FormContainer/Form.jsx";
 import Input from "./UI/Input/Input.jsx";
 import { email, setEmail } from "../store/authform.js";
+import { useFetching } from "../hooks/useFetching.js";
+import { checkEmail } from "../services/UserService.js";
+import Loader from "./UI/Loader/Loader.jsx";
 
 const EmailForm = () => {
   const isOpen = useStore(isEmailShow);
-  const emailValue = useStore(email)
+  const emailValue = useStore(email);
+
+  const [check, isChecking] = useFetching(async (email) => {
+    const response = await checkEmail(email);
+  })
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    check(emailValue);
+  }
 
   return(
     <ModalWindow isShow={isOpen} onClose={closeEmail}>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <h3 className="h2">Вход</h3>
         <Input value={emailValue}
                onChange={(e) => setEmail(e.target.value)}
                placeholder="E-mail"
         />
-        <Button>Далее</Button>
+        <Button disabled={isChecking} type="submit">
+          {isChecking ? <Loader width={"20px"} height={"20px"}/> : "Далее"}
+        </Button>
       </Form>
     </ModalWindow>
   )
