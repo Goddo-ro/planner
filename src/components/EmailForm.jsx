@@ -1,5 +1,5 @@
 import ModalWindow from "./UI/ModalWindow/ModalWindow.jsx";
-import { closeEmail, isEmailShow } from "../store/modals.js";
+import { closeEmail, isEmailShow, openLogin } from "../store/modals.js";
 import { useStore } from "effector-react";
 import Button from "./UI/Button/Button.jsx";
 import Form from "./FormContainer/Form.jsx";
@@ -14,7 +14,14 @@ const EmailForm = () => {
   const emailValue = useStore(email);
 
   const [check, isChecking] = useFetching(async (email) => {
-    const response = await checkEmail(email);
+    try {
+      const response = await checkEmail(email);
+      // Open password form
+      closeEmail();
+      openLogin();
+    } catch (e) {
+      // Open registration form
+    }
   })
 
   const handleSubmit = (e) => {
