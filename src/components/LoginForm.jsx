@@ -1,7 +1,7 @@
 import ModalWindow from "./UI/ModalWindow/ModalWindow.jsx";
 import { useStore } from "effector-react";
-import { closeEmail, closeLogin, isLoginShow } from "../store/modals.js";
-import { email } from "../store/authForm.js";
+import { closeLogin, $isLoginShow } from "../store/modals.js";
+import { $email } from "../store/authForm.js";
 import Form from "./FormContainer/Form.jsx";
 import Button from "./UI/Button/Button.jsx";
 import Input from "./UI/Input/Input.jsx";
@@ -14,13 +14,13 @@ import { loginEvent } from "../store/auth.js";
 const LoginForm = () => {
   const [password, setPassword] = useState("");
 
-  const isOpen = useStore(isLoginShow);
-  const emailValue = useStore(email);
+  const isOpen = useStore($isLoginShow);
+  const emailValue = useStore($email);
 
   const [signIn, isLoading, error, setError] = useFetching(async (email, password) => {
     const response = await login(email, password);
     closeLogin();
-    loginEvent({token: response?.data?.jwt, user: response?.data?.user});
+    loginEvent(response?.data);
   })
 
   const handleSubmit = (e) => {

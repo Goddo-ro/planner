@@ -10,3 +10,11 @@ export const login = async (email, password) => {
     password: password,
   });
 };
+
+export const register = async (username, email, password) => {
+  return await $api.post('/auth/local/register', {
+    username: username,
+    email: email,
+    password: password,
+  })
+}
