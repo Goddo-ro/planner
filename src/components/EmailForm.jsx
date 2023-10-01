@@ -4,7 +4,7 @@ import { useStore } from "effector-react";
 import Button from "./UI/Button/Button.jsx";
 import Form from "./FormContainer/Form.jsx";
 import Input from "./UI/Input/Input.jsx";
-import { email, setEmail } from "../store/authform.js";
+import { email, setEmail } from "../store/authForm.js";
 import { useFetching } from "../hooks/useFetching.js";
 import { checkEmail } from "../services/UserService.js";
 import Loader from "./UI/Loader/Loader.jsx";
@@ -15,7 +15,7 @@ const EmailForm = () => {
 
   const [check, isChecking] = useFetching(async (email) => {
     try {
-      const response = await checkEmail(email);
+      await checkEmail(email);
       // Open password form
       closeEmail();
       openLogin();
