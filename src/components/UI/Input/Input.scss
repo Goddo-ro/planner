@@ -1,0 +1,17 @@
+@import "src/assets/styles/colors";
+
+.input-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 18px 16px;
+  border: 1px solid $main-colors-black;
+  border-radius: 12px;
+}
+
+.placeholder {
+
+}
