@@ -11,4 +11,14 @@
   padding: 18px 16px;
   border: 1px solid $main-colors-black;
   border-radius: 12px;
+
+  &.error {
+    border-color: $main-colors-accent;
+  }
+}
+
+.input-error {
+  position: absolute;
+  transform: translateY(4px);
+  color: $main-colors-accent;
 }

@@ -8,8 +8,12 @@ import { $email, setEmail } from "../store/authForm.js";
 import { useFetching } from "../hooks/useFetching.js";
 import { checkEmail } from "../services/UserService.js";
 import Loader from "./UI/Loader/Loader.jsx";
+import { useState } from "react";
+import { isValidEmail } from "../utils/validation.js";
 
 const EmailForm = () => {
+  const [error, setError] = useState("");
+
   const emailValue = useStore($email);
 
   const [check, isChecking] = useFetching(async (email) => {
@@ -25,6 +29,14 @@ const EmailForm = () => {
     }
   })
 
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    if (isValidEmail(emailValue))
+      setError("");
+    else
+      setError("Некорректный e-mail");
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     check(emailValue);
@@ -35,10 +47,11 @@ const EmailForm = () => {
       <Form onSubmit={handleSubmit}>
         <h3 className="h2 form__login-header">Вход</h3>
         <Input value={emailValue}
-               onChange={(e) => setEmail(e.target.value)}
+               onChange={handleEmailChange}
                placeholder="E-mail"
+               error={error}
         />
-        <Button disabled={isChecking} type="submit">
+        <Button disabled={isChecking || !!error} type="submit">
           {isChecking ? <Loader width={"20px"} height={"20px"}/> : "Далее"}
         </Button>
       </Form>

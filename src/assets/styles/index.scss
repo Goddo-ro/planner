@@ -20,6 +20,12 @@ span.red {
   color: $main-colors-accent;
 }
 
+.small {
+  font-size: 14px;
+  line-height: 120%;
+  letter-spacing: -0.28px;
+}
+
 .h1 {
   font-size: 64px;
   font-weight: bold;

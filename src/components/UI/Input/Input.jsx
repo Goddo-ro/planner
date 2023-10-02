@@ -23,7 +23,7 @@ const Input = ({
         className={`input ${error ? "error" : ""}`}
       />
       {
-        error && <p className="input-error">{error}</p>
+        error && <p className="input-error small">{error}</p>
       }
     </div>
   )
