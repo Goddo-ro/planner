@@ -9,6 +9,7 @@ const Input = ({
   error,
   disabled,
   onChange,
+  isValid,
 }) => {
   return (
     <div className="input-wrapper">
@@ -20,7 +21,7 @@ const Input = ({
         name={name}
         onChange={onChange}
         disabled={disabled}
-        className={`input ${error ? "error" : ""}`}
+        className={`input ${error ? "error" : ""} ${isValid ? "valid" : ""}`}
       />
       {
         error && <p className="input-error small">{error}</p>

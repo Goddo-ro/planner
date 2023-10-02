@@ -1,21 +1,25 @@
 import { useState } from "react";
 import { useStore } from "effector-react";
-import { $isRegShow, closeReg } from "../store/modals.js";
+import { closeReg } from "../store/modals.js";
 import { $email } from "../store/authForm.js";
-import ModalWindow from "./UI/ModalWindow/ModalWindow.jsx";
-import Form from "./FormContainer/Form.jsx";
-import Input from "./UI/Input/Input.jsx";
-import Button from "./UI/Button/Button.jsx";
 import { useFetching } from "../hooks/useFetching.js";
 import { register } from "../services/UserService.js";
-import { loginEvent } from "../store/auth.js";
+import { isValidPassword } from "../utils/validation.js";
+import Form from "./FormContainer/Form.jsx";
+import FormInputsContainer from "./FormInputsContainer/FormInputsContainer.jsx";
+import ModalWindow from "./UI/ModalWindow/ModalWindow.jsx";
+import Input from "./UI/Input/Input.jsx";
+import Button from "./UI/Button/Button.jsx";
 import Loader from "./UI/Loader/Loader.jsx";
 import PasswordValidInfo from "./UI/PasswordValidInfo/PasswordValidInfo.jsx";
-import FormInputsContainer from "./FormInputsContainer/FormInputsContainer.jsx";
 
 const RegForm = () => {
   const [password, setPassword] = useState("");
+  const [isPassValid, setIsPassValid] = useState(false);
+  const [passwordErr, setPasswordErr] = useState("");
   const [repPassword, setRepPassword] = useState("");
+  const [isRepPassValid, setIsRepPassValid] = useState(false);
+  const [repPassError, setRepPassError] = useState("");
 
   const emailValue = useStore($email);
 
@@ -24,34 +28,57 @@ const RegForm = () => {
     console.log(response)
   })
 
+  const handlePassChange = (e) => {
+    setPassword(e.target.value);
+    setError("");
+    if (isValidPassword(e.target.value)) {
+      setIsPassValid(true);
+      setPasswordErr("");
+    } else {
+      setIsPassValid(false);
+      if (e.target.value.length < 8 || e.target.value.length > 32)
+        setPasswordErr("Длина пароля от 8 до 32 символов");
+      else
+        setPasswordErr("Используйте латинские буквы, цифры и спец символы");
+    }
+  }
+
+  const handleRepPassChange = (e) => {
+    setRepPassword(e.target.value);
+    if (e.target.value !== password) {
+      setRepPassError("Пароли не совпадают");
+      setIsRepPassValid(false);
+    } else {
+      setRepPassError("");
+      setIsRepPassValid(true);
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     signUp(emailValue, password);
   }
 
-  const handleClose = () => {
-    setPassword("");
-    setRepPassword("");
-    closeReg();
-  }
-
   return (
-    <ModalWindow className="modal__content_reg" onClose={handleClose}>
+    <ModalWindow className="modal__content_reg" onClose={closeReg}>
       <Form onSubmit={handleSubmit}>
         <h3 className="h2">Регистрация</h3>
         <PasswordValidInfo/>
         <FormInputsContainer>
           <Input value={password}
-                 onChange={(e) => setPassword(e.target.value)}
+                 onChange={handlePassChange}
                  placeholder="Пароль"
+                 error={passwordErr ? passwordErr : error}
+                 isValid={isPassValid || !error}
           />
           <Input value={repPassword}
-                 onChange={(e) => setPassword(e.target.value)}
+                 onChange={handleRepPassChange}
                  placeholder="Повторить пароль"
-                 error={error}
+                 error={repPassError}
+                 isValid={isRepPassValid}
           />
         </FormInputsContainer>
-        <Button type="submit">
+        <Button disabled={!isPassValid || !isRepPassValid} type="submit">
           {
             isLoading ? <Loader width={"20px"} height={"20px"} /> : "Зарегистрироваться"
           }

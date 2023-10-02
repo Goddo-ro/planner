@@ -2,7 +2,7 @@
 
 .input-wrapper {
   width: 100%;
-  max-width: 346px;
+  max-width: 350px;
   position: relative;
 }
 
@@ -14,6 +14,10 @@
 
   &.error {
     border-color: $main-colors-accent;
+  }
+
+  &.valid {
+    border-color: $green;
   }
 }
 
