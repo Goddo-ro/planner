@@ -67,12 +67,14 @@ const RegForm = () => {
         <FormInputsContainer>
           <Input value={password}
                  onChange={handlePassChange}
+                 id={"password"}
                  placeholder="Пароль"
                  error={passwordErr ? passwordErr : error}
                  isValid={isPassValid || !error}
           />
           <Input value={repPassword}
                  onChange={handleRepPassChange}
+                 id={"repeat-password"}
                  placeholder="Повторить пароль"
                  error={repPassError}
                  isValid={isRepPassValid}

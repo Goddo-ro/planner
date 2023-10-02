@@ -48,6 +48,7 @@ const EmailForm = () => {
         <h3 className="h2 form__login-header">Вход</h3>
         <Input value={emailValue}
                onChange={handleEmailChange}
+               id={"email"}
                placeholder="E-mail"
                error={error}
         />

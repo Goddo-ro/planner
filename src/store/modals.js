@@ -3,7 +3,7 @@ import { createEvent, createStore } from "effector";
 
 export const openEmail = createEvent();
 export const closeEmail = createEvent();
-export const $isEmailShow = createStore(false)
+export const $isEmailShow = createStore(true)
   .on(openEmail, () => true)
   .on(closeEmail, () => false);
 
@@ -15,6 +15,6 @@ export const $isLoginShow = createStore(false)
 
 export const openReg = createEvent();
 export const closeReg = createEvent();
-export const $isRegShow = createStore(true)
+export const $isRegShow = createStore(false)
   .on(openReg, () => true)
   .on(closeReg, () => false);

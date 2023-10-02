@@ -39,6 +39,7 @@ const LoginForm = () => {
         <h3 className="h2 form__login-header">Вход</h3>
         <Input value={password}
                onChange={(e) => setPassword(e.target.value)}
+               id={"password"}
                placeholder="Пароль"
                error={error}
         />
