@@ -10,6 +10,8 @@ import { useFetching } from "../hooks/useFetching.js";
 import { register } from "../services/UserService.js";
 import { loginEvent } from "../store/auth.js";
 import Loader from "./UI/Loader/Loader.jsx";
+import PasswordValidInfo from "./UI/PasswordValidInfo/PasswordValidInfo.jsx";
+import FormInputsContainer from "./FormInputsContainer/FormInputsContainer.jsx";
 
 const RegForm = () => {
   const [password, setPassword] = useState("");
@@ -34,18 +36,21 @@ const RegForm = () => {
   }
 
   return (
-    <ModalWindow onClose={handleClose}>
+    <ModalWindow className="modal__content_reg" onClose={handleClose}>
       <Form onSubmit={handleSubmit}>
         <h3 className="h2">Регистрация</h3>
-        <Input value={password}
-               onChange={(e) => setPassword(e.target.value)}
-               placeholder="Пароль"
-        />
-        <Input value={repPassword}
-               onChange={(e) => setPassword(e.target.value)}
-               placeholder="Повторить пароль"
-               error={error}
-        />
+        <PasswordValidInfo/>
+        <FormInputsContainer>
+          <Input value={password}
+                 onChange={(e) => setPassword(e.target.value)}
+                 placeholder="Пароль"
+          />
+          <Input value={repPassword}
+                 onChange={(e) => setPassword(e.target.value)}
+                 placeholder="Повторить пароль"
+                 error={error}
+          />
+        </FormInputsContainer>
         <Button type="submit">
           {
             isLoading ? <Loader width={"20px"} height={"20px"} /> : "Зарегистрироваться"

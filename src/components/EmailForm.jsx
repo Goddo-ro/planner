@@ -31,9 +31,9 @@ const EmailForm = () => {
   }
 
   return(
-    <ModalWindow onClose={closeEmail}>
+    <ModalWindow className="modal__content_login" onClose={closeEmail}>
       <Form onSubmit={handleSubmit}>
-        <h3 className="h2">Вход</h3>
+        <h3 className="h2 form__login-header">Вход</h3>
         <Input value={emailValue}
                onChange={(e) => setEmail(e.target.value)}
                placeholder="E-mail"

@@ -2,6 +2,7 @@
 
 .input-wrapper {
   width: 100%;
+  max-width: 346px;
   position: relative;
 }
 
@@ -10,8 +11,4 @@
   padding: 18px 16px;
   border: 1px solid $main-colors-black;
   border-radius: 12px;
-}
-
-.placeholder {
-
 }

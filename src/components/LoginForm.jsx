@@ -34,9 +34,9 @@ const LoginForm = () => {
   }
 
   return (
-    <ModalWindow onClose={handleClose}>
+    <ModalWindow className="modal__content_login" onClose={handleClose}>
       <Form onSubmit={handleSubmit}>
-        <h3 className="h2">Вход</h3>
+        <h3 className="h2 form__login-header">Вход</h3>
         <Input value={password}
                onChange={(e) => setPassword(e.target.value)}
                placeholder="Пароль"
