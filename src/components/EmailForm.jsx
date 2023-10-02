@@ -10,7 +10,6 @@ import { checkEmail } from "../services/UserService.js";
 import Loader from "./UI/Loader/Loader.jsx";
 
 const EmailForm = () => {
-  const isOpen = useStore($isEmailShow);
   const emailValue = useStore($email);
 
   const [check, isChecking] = useFetching(async (email) => {
@@ -32,7 +31,7 @@ const EmailForm = () => {
   }
 
   return(
-    <ModalWindow isShow={isOpen} onClose={closeEmail}>
+    <ModalWindow onClose={closeEmail}>
       <Form onSubmit={handleSubmit}>
         <h3 className="h2">Вход</h3>
         <Input value={emailValue}

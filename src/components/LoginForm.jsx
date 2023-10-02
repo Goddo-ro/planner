@@ -14,7 +14,6 @@ import { loginEvent } from "../store/auth.js";
 const LoginForm = () => {
   const [password, setPassword] = useState("");
 
-  const isOpen = useStore($isLoginShow);
   const emailValue = useStore($email);
 
   const [signIn, isLoading, error, setError] = useFetching(async (email, password) => {
@@ -35,7 +34,7 @@ const LoginForm = () => {
   }
 
   return (
-    <ModalWindow isShow={isOpen} onClose={handleClose}>
+    <ModalWindow onClose={handleClose}>
       <Form onSubmit={handleSubmit}>
         <h3 className="h2">Вход</h3>
         <Input value={password}

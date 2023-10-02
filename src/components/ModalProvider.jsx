@@ -1,21 +1,24 @@
 import EmailForm from "./EmailForm.jsx";
 import LoginForm from "./LoginForm.jsx";
 import { useStore } from "effector-react";
-import { $token } from "../store/auth.js";
 import RegForm from "./RegForm.jsx";
+import { $isEmailShow, $isLoginShow, $isRegShow } from "../store/modals.js";
 
 const ModalProvider = () => {
-  const jwt = useStore($token);
+  const isEmailShow = useStore($isEmailShow);
+  const isLoginShow = useStore($isLoginShow);
+  const isRegShow = useStore($isRegShow);
 
   return(
     <>
       {
-        !jwt &&
-        <>
-          <EmailForm/>
-          <LoginForm/>
-          <RegForm/>
-        </>
+        isEmailShow && <EmailForm/>
+      }
+      {
+        isLoginShow && <LoginForm/>
+      }
+      {
+        isRegShow && <RegForm/>
       }
     </>
   )

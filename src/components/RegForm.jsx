@@ -15,7 +15,6 @@ const RegForm = () => {
   const [password, setPassword] = useState("");
   const [repPassword, setRepPassword] = useState("");
 
-  const isOpen = useStore($isRegShow);
   const emailValue = useStore($email);
 
   const [signUp, isLoading, error, setError] = useFetching(async (email, password) => {
@@ -35,7 +34,7 @@ const RegForm = () => {
   }
 
   return (
-    <ModalWindow isShow={isOpen} onClose={handleClose}>
+    <ModalWindow onClose={handleClose}>
       <Form onSubmit={handleSubmit}>
         <h3 className="h2">Регистрация</h3>
         <Input value={password}
