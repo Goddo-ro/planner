@@ -47,6 +47,7 @@ const EmailForm = () => {
       <Form onSubmit={handleSubmit}>
         <h3 className="h2 form__login-header">Вход</h3>
         <Input value={emailValue}
+               type="email"
                onChange={handleEmailChange}
                id={"email"}
                placeholder="E-mail"

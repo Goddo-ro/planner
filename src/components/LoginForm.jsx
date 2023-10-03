@@ -13,6 +13,7 @@ import { loginEvent } from "../store/auth.js";
 
 const LoginForm = () => {
   const [password, setPassword] = useState("");
+  const [type, setType] = useState("password");
 
   const emailValue = useStore($email);
 
@@ -39,6 +40,7 @@ const LoginForm = () => {
         <h3 className="h2 form__login-header">Вход</h3>
         <Input value={password}
                onChange={(e) => setPassword(e.target.value)}
+               type={"password"}
                id={"password"}
                placeholder="Пароль"
                error={error}

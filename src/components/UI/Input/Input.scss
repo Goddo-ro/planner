@@ -7,6 +7,20 @@
   padding: 18px 16px;
   border: 1px solid $main-colors-black;
   border-radius: 12px;
+
+  .input {
+    width: calc(100% - 40px);
+  }
+
+  .input-wrapper__pass-handler {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    margin: 0;
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+  }
 }
 
 .input {
@@ -22,15 +36,8 @@
     border-color: $green;
   }
 
-  &:focus {
+  &.active {
     transform: translateY(6px);
-  }
-
-  &:focus~.input-wrapper__placeholder, {
-    top: 10px;
-    font-size: 14px;
-    line-height: 100%;
-    letter-spacing: -0.28px;
   }
 }
 
@@ -43,6 +50,13 @@
   cursor: text;
   color: $dark-gray;
   z-index: 0;
+}
+
+.input-wrapper__placeholder.active {
+  top: 10px;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: -0.28px;
 }
 
 .input-error {
