@@ -54,7 +54,7 @@ const Input = ({
           {placeholder}
         </label>
         {
-          type === "password" && <PasswordHandler type={passType} onClick={handlePassShow} />
+          type === "password" && value && <PasswordHandler type={passType} onClick={handlePassShow} />
         }
         {
           error && <p className="input-error small">{error}</p>

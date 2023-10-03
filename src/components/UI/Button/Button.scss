@@ -36,11 +36,12 @@
   border-color: $gray;
   background-color: $gray;
   color: $dark-gray;
+  cursor: unset;
 
   &:hover,
   &:focus,
   &:active {
     color: $dark-gray;
-   background-color: $gray;
+    background-color: $gray;
   }
 }

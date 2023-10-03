@@ -4,7 +4,7 @@ const Button = ({type = 'button', onClick, children, className, disabled, ...res
   return (
     <button className={`btn ${className} ${disabled && 'btn_disabled'}`}
             type={type}
-            onClick={() => {!disabled && onClick && onClick()}}
+            onClick={() => !disabled && onClick && onClick()}
             {...rest}
     >
       {children}

@@ -13,11 +13,10 @@ import { loginEvent } from "../store/auth.js";
 
 const LoginForm = () => {
   const [password, setPassword] = useState("");
-  const [type, setType] = useState("password");
 
   const emailValue = useStore($email);
 
-  const [signIn, isLoading, error, setError] = useFetching(async (email, password) => {
+  const [signIn, isLoading, error] = useFetching(async (email, password) => {
     const response = await login(email, password);
     closeLogin();
     loginEvent(response?.data);
@@ -25,17 +24,13 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (isLoading)
+      return;
     signIn(emailValue, password);
   }
 
-  const handleClose = () => {
-    setPassword("");
-    setError("");
-    closeLogin();
-  }
-
   return (
-    <ModalWindow className="modal__content_login" onClose={handleClose}>
+    <ModalWindow className="modal__content_login">
       <Form onSubmit={handleSubmit}>
         <h3 className="h2 form__login-header">Вход</h3>
         <Input value={password}

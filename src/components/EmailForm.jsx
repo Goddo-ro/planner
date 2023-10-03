@@ -39,6 +39,8 @@ const EmailForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (isChecking || !!error || !emailValue)
+      return;
     check(emailValue);
   }
 
@@ -53,7 +55,7 @@ const EmailForm = () => {
                placeholder="E-mail"
                error={error}
         />
-        <Button disabled={isChecking || !!error} type="submit">
+        <Button disabled={isChecking || !!error || !emailValue} type="submit">
           {isChecking ? <Loader width={"20px"} height={"20px"}/> : "Далее"}
         </Button>
       </Form>

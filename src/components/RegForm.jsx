@@ -56,6 +56,8 @@ const RegForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!isPassValid || !isRepPassValid)
+      return;
     signUp(emailValue, password);
   }
 
