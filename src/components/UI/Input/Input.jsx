@@ -40,6 +40,7 @@ const Input = ({
           value={value}
           name={name}
           onBlur={handleFocusOut}
+          onFocus={() => setIsInputActive(true)}
           onChange={onChange}
           disabled={disabled}
           className={`input ${error ? "error" : ""} ${isValid ? "valid" : ""} ${isInputActive && 'active'}`}

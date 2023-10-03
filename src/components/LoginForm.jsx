@@ -30,7 +30,7 @@ const LoginForm = () => {
   }
 
   return (
-    <ModalWindow className="modal__content_login">
+    <ModalWindow className="modal__content_login" onClose={closeLogin}>
       <Form onSubmit={handleSubmit}>
         <h3 className="h2 form__login-header">Вход</h3>
         <Input value={password}
