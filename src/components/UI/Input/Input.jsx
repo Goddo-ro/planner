@@ -56,10 +56,10 @@ const Input = ({
         {
           type === "password" && <PasswordHandler type={passType} onClick={handlePassShow} />
         }
+        {
+          error && <p className="input-error small">{error}</p>
+        }
       </div>
-      {
-        error && <p className="input-error small">{error}</p>
-      }
     </>
 
   )

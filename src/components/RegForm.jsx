@@ -68,6 +68,7 @@ const RegForm = () => {
           <Input value={password}
                  onChange={handlePassChange}
                  id={"password"}
+                 type={"password"}
                  placeholder="Пароль"
                  error={passwordErr ? passwordErr : error}
                  isValid={isPassValid || !error}
@@ -75,6 +76,7 @@ const RegForm = () => {
           <Input value={repPassword}
                  onChange={handleRepPassChange}
                  id={"repeat-password"}
+                 type={"password"}
                  placeholder="Повторить пароль"
                  error={repPassError}
                  isValid={isRepPassValid}
