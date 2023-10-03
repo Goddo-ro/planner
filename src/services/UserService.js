@@ -18,3 +18,11 @@ export const register = async (username, email, password) => {
     password: password,
   })
 }
+
+export const getMe = async (token) => {
+  return await $api.get('/users/me', {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  })
+}

@@ -1,0 +1,12 @@
+@import "src/assets/styles/colors";
+
+.user-icon-container {
+  border-radius: 50%;
+  background-color: $gray;
+  height: 80px;
+  width: 80px;
+  padding-top: 7.273px;
+  background-image: url("src/assets/images/head1(1).png");
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+}
