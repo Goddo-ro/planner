@@ -11,7 +11,11 @@
   color: $main-colors-black;
 }
 
-body {
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
   padding-top: 2rem;
   padding-bottom: 64px;
   padding-inline: 60px;

@@ -1,11 +1,13 @@
 import { Calendar, momentLocalizer } from "react-big-calendar";
-import "react-big-calendar/lib/sass/styles.scss";
+import { useStore } from "effector-react";
 import moment from 'moment/dist/moment';
 import ru from 'moment/dist/locale/ru';
 import { capitalize } from "../../utils/stringUtils.js";
-import { useStore } from "effector-react";
 import { $curDate, setDate } from "../../store/date.js";
-moment.locale('ru', ru)
+import "react-big-calendar/lib/sass/styles.scss";
+import "./CalendarContainer.scss";
+
+moment.updateLocale('ru', ru)
 
 const localizer = momentLocalizer(moment);
 
@@ -25,18 +27,24 @@ localizer.formats.dateFormat = (date, culture) => {
 const CalendarContainer = () => {
   const curDate = useStore($curDate);
 
+  const customToolbar = () => <></>
+
   return (
     <div>
       <Calendar
         localizer={localizer}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: "80vh" }}
+        style={{ height: "calc(100vh - 240px)" }}
         views={['month']}
         defaultView="month"
         date={curDate}
         onNavigate={(date) => setDate(date)}
         culture="ru"
+        showCurrentDate={false}
+        components={{
+          toolbar: customToolbar,
+        }}
       />
     </div>
   )

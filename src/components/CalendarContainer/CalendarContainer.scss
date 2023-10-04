@@ -1,0 +1,59 @@
+.rbc-month-view {
+  border: none;
+
+  .rbc-header {
+    border-left: none;
+    border-bottom: none;
+    margin-bottom: 16px;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 100%; /* 24px */
+    letter-spacing: -0.48px;
+    display: flex;
+    justify-content: end;
+
+    .columnheader {
+      margin-left: auto;
+    }
+  }
+
+  .rbc-month-header + .rbc-month-row {
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    border-top: 1px solid #ddd;
+  }
+
+  .rbc-month-row {
+    border-inline: 1px solid #ddd;
+
+    &:last-child {
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .rbc-row-bg + .rbc-day-bg {
+      border: none;
+    }
+  }
+
+  .rbc-today {
+    background: transparent;
+  }
+}
+
+.rbc-off-range-bg {
+  background: transparent;
+  border: none;
+}
+
+.rbc-date-cell {
+  padding: 12px;
+  font-family: TT Commons, serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 28px */
+  letter-spacing: -0.4px;
+}
