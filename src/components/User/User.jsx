@@ -1,10 +1,12 @@
 import { useStore } from "effector-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Button from "../UI/Button/Button.jsx";
 import { getMe } from "../../services/UserService.js";
 import { useFetching } from "../../hooks/useFetching.js";
 import { openEmail } from "../../store/modals.js";
 import { $token, $user, loginEvent } from "../../store/auth.js";
+import PlusWhiteIcon from "../../assets/icons/plus.svg";
+import PlusBlackIcon from "../../assets/icons/plusBlack.svg";
 import "./User.scss";
 
 const User = () => {
@@ -26,10 +28,27 @@ const User = () => {
     <div>
       {
         jwt
-          ?
-          <div className="user-icon-container"/>
-          : <Button onClick={openEmail}>Войти</Button>
+          ? <EnteredUserContainer/>
+          : <Button id="header-login-btn" onClick={openEmail}>Войти</Button>
       }
+    </div>
+  )
+}
+
+const EnteredUserContainer = () => {
+  const [curIcon, setCurIcon] = useState(PlusWhiteIcon);
+
+  return (
+    <div className="entered-user-container">
+      <Button
+        onMouseEnter={() => setCurIcon(PlusBlackIcon)}
+        onMouseLeave={() => setCurIcon(PlusWhiteIcon)}
+        onFocus={() => setCurIcon(PlusBlackIcon)}
+        onBlur={() => setCurIcon(PlusWhiteIcon)}
+      >
+        <img src={curIcon} alt="new event"/>
+      </Button>
+      <div className="user-icon-container"/>
     </div>
   )
 }

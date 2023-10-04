@@ -1,5 +1,27 @@
 @import "src/assets/styles/colors";
 
+.entered-user-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 37px;
+  margin-left: 60px;
+
+  button {
+    width: 90px;
+    padding: 19px 32px;
+
+
+    &:hover,
+    &:focus,
+    &:active {
+      img {
+        filter: invert(0%) sepia(100%) saturate(7500%) hue-rotate(77deg) brightness(103%) contrast(108%);
+      }
+    }
+  }
+}
+
 .user-icon-container {
   border-radius: 50%;
   background-color: $gray;
@@ -9,4 +31,8 @@
   background-image: url("src/assets/images/head1(1).png");
   background-position-y: bottom;
   background-repeat: no-repeat;
+}
+
+#header-login-btn {
+  margin-left: 132px;
 }
