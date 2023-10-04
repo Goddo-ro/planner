@@ -46,6 +46,10 @@
   .rbc-today {
     background: transparent;
   }
+
+  .rbc-off-range {
+    color: $out-of-range-text-color;
+  }
 }
 
 .rbc-off-range-bg {
