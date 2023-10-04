@@ -2,12 +2,15 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/sass/styles.scss";
 import moment from 'moment/dist/moment';
 import ru from 'moment/dist/locale/ru';
+import { capitalize } from "../../utils/stringUtils.js";
+import { useStore } from "effector-react";
+import { $curDate, setDate } from "../../store/date.js";
 moment.locale('ru', ru)
 
 const localizer = momentLocalizer(moment);
 
 localizer.formats.weekdayFormat = (day, culture) => {
-  return moment(day).format('dd', culture).charAt(0).toUpperCase() + moment(day).format('dd', culture).slice(1);
+  return capitalize(moment(day).format('dd', culture));
 };
 
 localizer.formats.dateFormat = (date, culture) => {
@@ -19,8 +22,9 @@ localizer.formats.dateFormat = (date, culture) => {
   }
 };
 
-
 const CalendarContainer = () => {
+  const curDate = useStore($curDate);
+
   return (
     <div>
       <Calendar
@@ -30,6 +34,8 @@ const CalendarContainer = () => {
         style={{ height: "80vh" }}
         views={['month']}
         defaultView="month"
+        date={curDate}
+        onNavigate={(date) => setDate(date)}
         culture="ru"
       />
     </div>

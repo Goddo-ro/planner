@@ -1,5 +1,6 @@
 import "./Header.scss";
 import User from "../User/User.jsx";
+import MonthSwitcher from "../MonthSwitcher/MonthSwitcher.jsx";
 
 const Header = () => {
   return (
@@ -13,7 +14,10 @@ const Header = () => {
           planner <span className="red">event</span>
         </h1>
       </div>
-      <User/>
+      <div className="header__right">
+        <MonthSwitcher/>
+        <User/>
+      </div>
     </header>
   )
 }

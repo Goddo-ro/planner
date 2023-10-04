@@ -1,0 +1,24 @@
+@import "src/assets/styles/colors";
+
+.month-switcher {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  .month-switcher__switches {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .month-switcher__switcher {
+    background: $gray;
+    padding: 8px 16px;
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+}

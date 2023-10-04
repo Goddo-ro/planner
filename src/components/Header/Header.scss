@@ -8,6 +8,11 @@
     align-items: center;
     gap: 19px;
   }
+
+  .header__right {
+    display: flex;
+    align-items: stretch;
+  }
 }
 
 .logo {
