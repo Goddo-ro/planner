@@ -29,7 +29,7 @@ const User = () => {
       {
         jwt
           ? <EnteredUserContainer/>
-          : <Button id="header-login-btn" onClick={openEmail}>Войти</Button>
+          : <Button onClick={openEmail}>Войти</Button>
       }
     </div>
   )

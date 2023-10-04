@@ -4,12 +4,14 @@ import { capitalize } from "../../utils/stringUtils.js";
 import arrowLeft from "../../assets/icons/arrowLeft.svg"
 import arrowRight from "../../assets/icons/arrowRight.svg"
 import "./MonthSwitcher.scss";
+import { $token } from "../../store/auth.js";
 
 const MonthSwitcher = () => {
   const date = useStore($curDate);
+  const jwt = useStore($token);
 
   return (
-    <div className="month-switcher">
+    <div className={`month-switcher ${!jwt ? 'mr' : ''}`}>
       <span className="h3 bold">
         {capitalize(date.toLocaleString('default', {month: 'long'}))} {date.getFullYear() !== new Date().getFullYear() ? date.getFullYear() : ""}
       </span>

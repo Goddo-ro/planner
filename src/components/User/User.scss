@@ -11,7 +11,6 @@
     width: 90px;
     padding: 19px 32px;
 
-
     &:hover,
     &:focus,
     &:active {
@@ -28,11 +27,8 @@
   height: 80px;
   width: 80px;
   padding-top: 7.273px;
-  background-image: url("src/assets/images/head1(1).png");
+  background-image: url("/head1(1).png");
   background-position-y: bottom;
   background-repeat: no-repeat;
 }
 
-#header-login-btn {
-  margin-left: 132px;
-}
