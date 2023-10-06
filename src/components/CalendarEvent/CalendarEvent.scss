@@ -13,24 +13,45 @@
   background: $gray;
   border-radius: 8px;
   padding: 0;
+  margin-bottom: 12px;
 
-    margin-bottom: 12px;
+  &:focus {
+    outline: none;
+  }
+
+  &.rbc-selected {
+    background: $gray;
+  }
 }
 
 .rbc-event-content {
   padding: 2px 6px;
+  display: flex !important;
+  align-items: center;
+  gap: 4px;
+
+  .circle {
+    background: $main-colors-accent;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    gap: 4px;
+  }
 
   .event-content__title {
     font-family: 'TT Commons', serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
-    line-height: 140%; /* 28px */
+    line-height: 1;
     letter-spacing: -0.4px;
-    overflow:hidden;
-    white-space:nowrap;
+    border: none !important;
+    overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
     color: $main-colors-black;
+    margin: 0;
+    padding: 0;
 
     &.expired {
       color: $dark-gray;
