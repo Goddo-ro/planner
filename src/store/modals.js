@@ -21,6 +21,6 @@ export const $isRegShow = createStore(false)
 
 export const openError = createEvent();
 export const closeError = createEvent();
-export const $isErrorShow = createStore(true)
+export const $isErrorShow = createStore(false)
   .on(openError, () => true)
   .on(closeError, () => false);

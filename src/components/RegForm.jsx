@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useStore } from "effector-react";
-import { closeLogin, closeReg } from "../store/modals.js";
+import { closeLogin, closeReg, openError } from "../store/modals.js";
 import { $email } from "../store/authForm.js";
 import { useFetching } from "../hooks/useFetching.js";
 import { register } from "../services/UserService.js";
@@ -26,9 +26,14 @@ const RegForm = () => {
   const emailValue = useStore($email);
 
   const [signUp, isLoading, error, setError] = useFetching(async (email, password) => {
-    const response = await register(`user${generateId()}`, email, password);
-    closeReg();
-    loginEvent(response?.data);
+    try {
+      const response = await register(`user${generateId()}`, email, password);
+      closeReg();
+      loginEvent(response?.data);
+    } catch (e) {
+      closeReg();
+      openError();
+    }
   })
 
   const handlePassChange = (e) => {

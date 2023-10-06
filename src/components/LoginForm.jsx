@@ -1,6 +1,6 @@
 import ModalWindow from "./UI/ModalWindow/ModalWindow.jsx";
 import { useStore } from "effector-react";
-import { closeLogin, $isLoginShow } from "../store/modals.js";
+import { closeLogin, $isLoginShow, openError } from "../store/modals.js";
 import { $email } from "../store/authForm.js";
 import Form from "./FormContainer/Form.jsx";
 import Button from "./UI/Button/Button.jsx";
@@ -16,10 +16,21 @@ const LoginForm = () => {
 
   const emailValue = useStore($email);
 
-  const [signIn, isLoading, error] = useFetching(async (email, password) => {
-    const response = await login(email, password);
-    closeLogin();
-    loginEvent(response?.data);
+  const [signIn, isLoading, error, setError] = useFetching(async (email, password) => {
+    try {
+      const response = await login(email, password);
+      closeLogin();
+      openError();
+      // closeLogin();
+      // loginEvent(response?.data);
+    } catch (e) {
+      if (e.response.status === 400) {
+        setError("Неверный пароль")
+      } else if (e.response.status >= 500) {
+        closeLogin();
+        openError();
+      }
+    }
   })
 
   const handleSubmit = (e) => {
