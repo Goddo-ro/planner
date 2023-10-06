@@ -18,3 +18,9 @@ export const closeReg = createEvent();
 export const $isRegShow = createStore(false)
   .on(openReg, () => true)
   .on(closeReg, () => false);
+
+export const openError = createEvent();
+export const closeError = createEvent();
+export const $isErrorShow = createStore(true)
+  .on(openError, () => true)
+  .on(closeError, () => false);

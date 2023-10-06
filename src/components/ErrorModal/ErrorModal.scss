@@ -1,0 +1,19 @@
+.error-message-container {
+  min-width: 77git ad0px;
+  padding: 88px 80px;
+  padding-bottom: 64px;
+  background: url("./bird.png") no-repeat bottom 40px right;
+
+  .error-message-container__info-container {
+    margin-bottom: 102px;
+  }
+
+  .error-message-container__title {
+    max-width: 516px;
+    margin-bottom: 24px;
+  }
+
+  .error-message-container__button {
+    width: 141px;
+  }
+}
