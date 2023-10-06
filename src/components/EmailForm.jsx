@@ -6,7 +6,7 @@ import Form from "./FormContainer/Form.jsx";
 import Input from "./UI/Input/Input.jsx";
 import { $email, setEmail } from "../store/authForm.js";
 import { useFetching } from "../hooks/useFetching.js";
-import { checkEmail } from "../services/UserService.js";
+import { checkEmail } from "../services/userService.js";
 import Loader from "./UI/Loader/Loader.jsx";
 import { useState } from "react";
 import { isValidEmail } from "../utils/validation.js";

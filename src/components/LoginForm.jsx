@@ -1,13 +1,13 @@
+import { useState } from "react";
 import ModalWindow from "./UI/ModalWindow/ModalWindow.jsx";
 import { useStore } from "effector-react";
-import { closeLogin, $isLoginShow, openError } from "../store/modals.js";
+import { closeLogin, openError } from "../store/modals.js";
 import { $email } from "../store/authForm.js";
 import Form from "./FormContainer/Form.jsx";
 import Button from "./UI/Button/Button.jsx";
 import Input from "./UI/Input/Input.jsx";
-import { useState } from "react";
 import { useFetching } from "../hooks/useFetching.js";
-import { login } from "../services/UserService.js";
+import { login } from "../services/userService.js";
 import Loader from "./UI/Loader/Loader.jsx";
 import { loginEvent } from "../store/auth.js";
 
@@ -20,9 +20,7 @@ const LoginForm = () => {
     try {
       const response = await login(email, password);
       closeLogin();
-      openError();
-      // closeLogin();
-      // loginEvent(response?.data);
+      loginEvent(response?.data);
     } catch (e) {
       if (e.response.status === 400) {
         setError("Неверный пароль")

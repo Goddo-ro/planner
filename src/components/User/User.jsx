@@ -1,7 +1,7 @@
 import { useStore } from "effector-react";
 import { useEffect, useState } from "react";
 import Button from "../UI/Button/Button.jsx";
-import { getMe } from "../../services/UserService.js";
+import { getMe } from "../../services/userService.js";
 import { useFetching } from "../../hooks/useFetching.js";
 import { openEmail } from "../../store/modals.js";
 import {$token, $user, loginEvent, logout} from "../../store/auth.js";

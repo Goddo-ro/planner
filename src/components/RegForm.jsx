@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useStore } from "effector-react";
-import { closeLogin, closeReg, openError } from "../store/modals.js";
+import { closeReg, openError } from "../store/modals.js";
 import { $email } from "../store/authForm.js";
 import { useFetching } from "../hooks/useFetching.js";
-import { register } from "../services/UserService.js";
+import { register } from "../services/userService.js";
 import { isValidPassword } from "../utils/validation.js";
 import Form from "./FormContainer/Form.jsx";
 import FormInputsContainer from "./FormInputsContainer/FormInputsContainer.jsx";

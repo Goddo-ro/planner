@@ -6,6 +6,11 @@ import { capitalize } from "../../utils/stringUtils.js";
 import { $curDate, setDate } from "../../store/date.js";
 import "react-big-calendar/lib/sass/styles.scss";
 import "./CalendarContainer.scss";
+import { useEffect, useState } from "react";
+import { useFetching } from "../../hooks/useFetching.js";
+import { getEvents } from "../../services/eventService.js";
+import { $token } from "../../store/auth.js";
+import transformEvents from "../../utils/transformEvents.js";
 
 moment.updateLocale('ru', ru)
 
@@ -25,7 +30,19 @@ localizer.formats.dateFormat = (date, culture) => {
 };
 
 const CalendarContainer = () => {
+  const [events, setEvents] = useState([]);
+
   const curDate = useStore($curDate);
+  const jwt = useStore($token);
+
+  const [fetchEvents] = useFetching(async (jwt) => {
+    const response = await getEvents(jwt);
+    setEvents(transformEvents(response.data.data));
+  });
+
+  useEffect(() => {
+    fetchEvents(jwt);
+  }, []);
 
   const customToolbar = () => <></>
 
@@ -39,12 +56,15 @@ const CalendarContainer = () => {
         views={['month']}
         defaultView="month"
         date={curDate}
+        events={events}
         onNavigate={(date) => setDate(date)}
         culture="ru"
         showCurrentDate={false}
         components={{
           toolbar: customToolbar,
         }}
+        timeslots={1} // Set timeslots to 1
+        step={60}
       />
     </div>
   )
