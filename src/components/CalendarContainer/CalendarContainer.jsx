@@ -11,6 +11,7 @@ import { useFetching } from "../../hooks/useFetching.js";
 import { getEvents } from "../../services/eventService.js";
 import { $token } from "../../store/auth.js";
 import transformEvents from "../../utils/transformEvents.js";
+import CalendarEvent from "../CalendarEvent/CalendarEvent.jsx";
 
 moment.updateLocale('ru', ru)
 
@@ -62,6 +63,7 @@ const CalendarContainer = () => {
         showCurrentDate={false}
         components={{
           toolbar: customToolbar,
+          event: CalendarEvent
         }}
         timeslots={1} // Set timeslots to 1
         step={60}
