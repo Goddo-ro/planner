@@ -10,7 +10,7 @@ export const $user = createStore(null)
   .on(loginEvent, (state, payload) => payload.user)
   .on(logout, () => null);
 
-// persist({
-//   store: $token,
-//   key: 'token',
-// })
+persist({
+  store: $token,
+  key: 'token',
+})
