@@ -8,5 +8,5 @@ export const getEvents = async (jwt) => {
   if (jwt) {
     config.headers['Authorization'] = `Bearer ${jwt}`;
   }
-  return await $api.get("/events", config);
+  return await $api.get("/events?populate=*", config);
 }

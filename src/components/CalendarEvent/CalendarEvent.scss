@@ -31,5 +31,9 @@
     white-space:nowrap;
     text-overflow: ellipsis;
     color: $main-colors-black;
+
+    &.expired {
+      color: $dark-gray;
+    }
   }
 }

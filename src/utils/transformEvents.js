@@ -9,5 +9,6 @@ export default function transformEvents(events) {
     endDate: event.dateEnd ? moment(event.dateEnd).toDate() : moment(event.dateStart).endOf('day').toDate(),
     description: event.description,
     location: event.location,
+    participants: event.participants,
   }));
 }
