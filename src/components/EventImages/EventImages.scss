@@ -9,15 +9,11 @@
   margin-bottom: 32px;
 }
 
-.react-multi-carousel-list {
-  position: relative;
-  z-index: 100012;
-}
-
 .react-multi-carousel-dot-list {
   gap: 12px;
-  z-index: 10123120;
   bottom: -32px;
+  left: 0;
+  width: 100%;
 }
 
 .custom-dot {

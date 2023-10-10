@@ -4,17 +4,28 @@
   width: 1075px;
   display: flex;
   flex-direction: column;
+  padding-top: 80px;
+  padding-bottom: 116px;
+
+  .expired-event-message {
+    margin-inline: auto;
+    margin-bottom: 24px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 12px;
+    background: $light-gray;
+    border-radius: 12px;
+  }
 
   & > * {
     margin-inline: 64px;
   }
 
-  & > *:first-child {
-    margin-top: 80px;
-  }
-
-  & > *:last-child {
+  &:not(.expired) > *:last-child {
+    margin-top: 96px;
     margin-bottom: 80px;
+    margin-inline: auto;
   }
 
   .event-container__title {
@@ -81,5 +92,17 @@
     font-weight: bold;
     line-height: 100%; /* 24px */
     letter-spacing: -0.48px;
+  }
+
+  &.expired {
+    .event-container__title {
+      margin-bottom: 16px;
+    }
+
+    .event-container__destination {
+      * {
+        color: $dark-gray;
+      }
+    }
   }
 }

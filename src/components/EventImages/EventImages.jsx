@@ -29,7 +29,6 @@ const EventImages = ({images}) => {
       <div className="event-container__slider-header">
         <h3 className="event-container__h3">Галерея</h3>
       </div>
-
       <Carousel
         responsive={responsive}
         arrows={false}
