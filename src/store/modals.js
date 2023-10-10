@@ -50,7 +50,7 @@ export const $eventData = createStore({
       "formats": {
         "thumbnail": {
           "ext": ".png",
-          "url": "/uploads/thumbnail_g1_bb26dc4eee.png",
+          "url": "/uploads/g4_cc02e81bdb.png",
           "hash": "thumbnail_g1_bb26dc4eee",
           "mime": "image/png",
           "name": "thumbnail_g1.png",
@@ -64,7 +64,7 @@ export const $eventData = createStore({
       "ext": ".png",
       "mime": "image/png",
       "size": 34.06,
-      "url": "/uploads/g1_bb26dc4eee.png",
+      "url": "/uploads/g4_cc02e81bdb.png",
       "previewUrl": null,
       "provider": "local",
       "provider_metadata": null,
@@ -81,7 +81,7 @@ export const $eventData = createStore({
       "formats": {
         "thumbnail": {
           "ext": ".png",
-          "url": "/uploads/thumbnail_g3_25d162a923.png",
+          "url": "/uploads/g4_cc02e81bdb.png",
           "hash": "thumbnail_g3_25d162a923",
           "mime": "image/png",
           "name": "thumbnail_g3.png",
@@ -95,7 +95,7 @@ export const $eventData = createStore({
       "ext": ".png",
       "mime": "image/png",
       "size": 15.61,
-      "url": "/uploads/g3_25d162a923.png",
+      "url": "/uploads/g4_cc02e81bdb.png",
       "previewUrl": null,
       "provider": "local",
       "provider_metadata": null,
@@ -112,7 +112,7 @@ export const $eventData = createStore({
       "formats": {
         "thumbnail": {
           "ext": ".png",
-          "url": "/uploads/thumbnail_g2_22d926a56a.png",
+          "url": "/uploads/g4_cc02e81bdb.png",
           "hash": "thumbnail_g2_22d926a56a",
           "mime": "image/png",
           "name": "thumbnail_g2.png",
@@ -126,7 +126,38 @@ export const $eventData = createStore({
       "ext": ".png",
       "mime": "image/png",
       "size": 24.08,
-      "url": "/uploads/g2_22d926a56a.png",
+      "url": "/uploads/g4_cc02e81bdb.png",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "createdAt": "2023-09-27T15:31:25.229Z",
+      "updatedAt": "2023-09-27T15:31:25.229Z"
+    },
+    {
+      "id": 3,
+      "name": "g2.png",
+      "alternativeText": null,
+      "caption": null,
+      "width": 268,
+      "height": 160,
+      "formats": {
+        "thumbnail": {
+          "ext": ".png",
+          "url": "/uploads/g4_cc02e81bdb.png",
+          "hash": "thumbnail_g2_22d926a56a",
+          "mime": "image/png",
+          "name": "thumbnail_g2.png",
+          "path": null,
+          "size": 79.53,
+          "width": 245,
+          "height": 146
+        }
+      },
+      "hash": "g2_22d926a56a",
+      "ext": ".png",
+      "mime": "image/png",
+      "size": 24.08,
+      "url": "/uploads/g4_cc02e81bdb.png",
       "previewUrl": null,
       "provider": "local",
       "provider_metadata": null,

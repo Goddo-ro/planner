@@ -14,8 +14,6 @@ const Participants = ({participants}) => {
         }
       </ul>
     </div>
-
-
   )
 }
 

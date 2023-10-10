@@ -4,6 +4,7 @@ import { useStore } from "effector-react";
 import { getFormattedTime, getRussianDayOfWeek, getRussianMonth } from "../../utils/dateUtils.js";
 import Participants from "../Participants/Participants.jsx";
 import "./EventModal.scss";
+import EventImages from "../EventImages/EventImages.jsx";
 
 const EventModal = () => {
   const eventData = useStore($eventData);
@@ -24,6 +25,7 @@ const EventModal = () => {
           <p className="event-container__description">{eventData.description}</p>
         </div>
         <Participants participants={eventData.participants}/>
+        <EventImages images={eventData.photos}/>
       </div>
     </ModalWindow>
   )
