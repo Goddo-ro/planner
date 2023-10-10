@@ -1,3 +1,4 @@
+import React from "react";
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
 import "./EventImages.scss";
@@ -31,12 +32,32 @@ const EventImages = ({images}) => {
 
       <Carousel
         responsive={responsive}
-        removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
+        arrows={false}
+        showDots customDot={<CustomDot />}
+        slidesToSlide={1}
+        renderDotsOutside={true}
       >
         {images.map((image, i) => <img key={i} src={`https://planner.rdclr.ru${image.url}`} alt="event photo"/>)}
       </Carousel>
     </div>
   )
 }
+
+const CustomDot = ({ onClick, ...rest }) => {
+  const {
+    onMove,
+    index,
+    active,
+    carouselState: { currentSlide, totalItems }
+  } = rest;
+
+  return (
+    <button
+      className={`custom-dot ${active ? "active" : "inactive"}`}
+      onClick={() => onClick()}
+    >
+    </button>
+  );
+};
 
 export default EventImages;

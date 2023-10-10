@@ -163,7 +163,7 @@ export const $eventData = createStore({
       "provider_metadata": null,
       "createdAt": "2023-09-27T15:31:25.229Z",
       "updatedAt": "2023-09-27T15:31:25.229Z"
-    }
+    },
   ],
   "participants": [
     {
