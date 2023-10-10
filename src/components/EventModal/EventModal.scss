@@ -1,0 +1,64 @@
+@import "src/assets/styles/colors";
+
+.event-container {
+  width: 1075px;
+  display: flex;
+  flex-direction: column;
+
+  .event-container__title {
+    text-align: center;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 100%; /* 36px */
+    letter-spacing: -0.72px;
+    margin-bottom: 40px;
+  }
+
+  .event-container__description-container {
+    display: flex;
+    gap: 32px;
+  }
+
+  .event-container__destination {
+    background: $light-gray;
+    padding: 15px 12px 15px 16px;
+    border-radius: 24px;
+    min-width: 212px
+  }
+
+  .event-container__time {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $gray;
+
+    & > * {
+      font-size: 18px;
+      font-style: normal;
+      line-height: 100%; /* 18px */
+      letter-spacing: -0.36px;
+      font-weight: bold;
+    }
+  }
+
+  .event-container__location {
+    font-family: "TT Commons", serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 18px */
+    letter-spacing: -0.36px;
+  }
+
+  .event-container__description {
+    font-family: "TT Commons", serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 28px */
+    letter-spacing: -0.4px;
+  }
+}

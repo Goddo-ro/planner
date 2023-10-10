@@ -1,8 +1,9 @@
-import "./CalendarEvent.scss";
 import { useEffect, useState } from "react";
-import { checkIfDateIsExpired, checkIfUserBelongsTo } from "../../utils/eventUtils.js";
+import { checkIfUserBelongsTo } from "../../utils/eventUtils.js";
 import { useStore } from "effector-react";
-import { $token, $user } from "../../store/auth.js";
+import { $user } from "../../store/auth.js";
+import { checkIfDateIsExpired } from "../../utils/dateUtils.js";
+import "./CalendarEvent.scss";
 
 const CalendarEvent = ({ event }) => {
   const [isExpired, setIsExpired] = useState(false);
@@ -12,10 +13,15 @@ const CalendarEvent = ({ event }) => {
 
   useEffect(() => {
     checkIfDateIsExpired(event.start) && setIsExpired(true);
-    if (user.id) {
-      checkIfUserBelongsTo(event.participants, user.id) && setDoesUserBelongs(true);
-    }
   }, []);
+
+  useEffect(() => {
+    if (user) {
+      checkIfUserBelongsTo(event.participants, user.id) && setDoesUserBelongs(true);
+    } else {
+      setDoesUserBelongs(false);
+    }
+  }, [user]);
 
   return (
     <>

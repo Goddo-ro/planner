@@ -15,10 +15,6 @@
   padding: 0;
   margin-bottom: 12px;
 
-  &:focus {
-    outline: none;
-  }
-
   &.rbc-selected {
     background: $gray;
   }
