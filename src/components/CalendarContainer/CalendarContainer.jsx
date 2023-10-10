@@ -42,7 +42,7 @@ const CalendarContainer = () => {
   });
 
   useEffect(() => {
-    fetchEvents(jwt);
+    // fetchEvents(jwt);
   }, []);
 
   const customToolbar = () => <></>

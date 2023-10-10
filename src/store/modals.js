@@ -133,6 +133,88 @@ export const $eventData = createStore({
       "createdAt": "2023-09-27T15:31:25.229Z",
       "updatedAt": "2023-09-27T15:31:25.229Z"
     }
+  ],
+  "participants": [
+    {
+      "id": 25,
+      "username": "Bojack",
+      "email": "bojack@mail.ru",
+      "provider": "local",
+      "confirmed": true,
+      "blocked": false,
+      "createdAt": "2023-10-09T08:09:53.950Z",
+      "updatedAt": "2023-10-09T08:09:53.950Z"
+    },
+    {
+      "id": 24,
+      "username": "ragnar_lodbrok",
+      "email": "ragnar@mail.ru",
+      "provider": "local",
+      "confirmed": true,
+      "blocked": false,
+      "createdAt": "2023-10-09T06:17:23.455Z",
+      "updatedAt": "2023-10-09T10:47:57.399Z"
+    },
+    {
+      "id": 2,
+      "username": "Test1",
+      "email": "test1@test.ru",
+      "provider": "local",
+      "confirmed": true,
+      "blocked": false,
+      "createdAt": "2023-10-01T12:20:44.167Z",
+      "updatedAt": "2023-10-01T12:20:44.167Z"
+    },
+    {
+      "id": 12,
+      "username": "Иван Иванов",
+      "email": "ivan@mail.ru",
+      "provider": "local",
+      "confirmed": true,
+      "blocked": false,
+      "createdAt": "2023-10-05T19:16:35.622Z",
+      "updatedAt": "2023-10-05T19:16:35.622Z"
+    },
+    {
+      "id": 10,
+      "username": "Шамиль",
+      "email": "shamil@mail.ru",
+      "provider": "local",
+      "confirmed": true,
+      "blocked": false,
+      "createdAt": "2023-10-03T07:28:27.426Z",
+      "updatedAt": "2023-10-06T09:52:19.866Z"
+    },
+    {
+      "id": 9,
+      "username": "user1",
+      "email": "user1email@gmail.com",
+      "provider": "local",
+      "confirmed": true,
+      "blocked": false,
+      "createdAt": "2023-10-02T19:28:10.682Z",
+      "updatedAt": "2023-10-02T19:28:10.682Z"
+    },
+    {
+      "id": 27,
+      "username": "Ибрагим",
+      "email": "fiit@gmail.com",
+      "provider": "local",
+      "confirmed": true,
+      "blocked": false,
+      "createdAt": "2023-10-09T22:14:57.258Z",
+      "updatedAt": "2023-10-09T22:14:57.258Z"
+    },
+    {
+      "id": 28,
+      "username": "Виталий",
+      "email": "secval224@gmail.com",
+      "provider": "local",
+      "confirmed": true,
+      "blocked": false,
+      "createdAt": "2023-10-10T09:59:30.053Z",
+      "updatedAt": "2023-10-10T09:59:30.053Z"
+    }
   ]
 })
   .on(openEvent, (state, payload) => payload)

@@ -1,8 +1,9 @@
 import ModalWindow from "../UI/ModalWindow/ModalWindow.jsx";
 import { $eventData, closeEvent } from "../../store/modals.js";
-import "./EventModal.scss";
 import { useStore } from "effector-react";
 import { getFormattedTime, getRussianDayOfWeek, getRussianMonth } from "../../utils/dateUtils.js";
+import Participants from "../Participants/Participants.jsx";
+import "./EventModal.scss";
 
 const EventModal = () => {
   const eventData = useStore($eventData);
@@ -22,6 +23,7 @@ const EventModal = () => {
           </div>
           <p className="event-container__description">{eventData.description}</p>
         </div>
+        <Participants participants={eventData.participants}/>
       </div>
     </ModalWindow>
   )

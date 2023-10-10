@@ -18,6 +18,7 @@
   .event-container__description-container {
     display: flex;
     gap: 32px;
+    margin-bottom: 40px;
   }
 
   .event-container__destination {
@@ -60,5 +61,13 @@
     font-weight: 500;
     line-height: 140%; /* 28px */
     letter-spacing: -0.4px;
+  }
+
+  .event-container__h3 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 100%; /* 24px */
+    letter-spacing: -0.48px;
   }
 }
