@@ -41,7 +41,9 @@ const EventModal = () => {
           <p className="event-container__description">{eventData.description}</p>
         </div>
         <Participants participants={eventData.participants}/>
-        <EventImages images={eventData.photos}/>
+        {
+          eventData.photos && <EventImages images={eventData.photos}/>
+        }
         {
           !checkIfDateIsExpired(eventData.start) && (!jwt
             ? <p><span onClick={handleLogin} className="error-text">Войдите</span>, чтобы присоединиться к событию</p>

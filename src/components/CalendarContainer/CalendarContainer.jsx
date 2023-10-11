@@ -12,6 +12,7 @@ import { getEvents } from "../../services/eventService.js";
 import { $token } from "../../store/auth.js";
 import transformEvents from "../../utils/transformEvents.js";
 import CalendarEvent from "../CalendarEvent/CalendarEvent.jsx";
+import { openEvent } from "../../store/modals.js";
 
 moment.updateLocale('ru', ru)
 
@@ -61,6 +62,7 @@ const CalendarContainer = () => {
         onNavigate={(date) => setDate(date)}
         culture="ru"
         showCurrentDate={false}
+        onSelectEvent={(event) => openEvent(event)}
         components={{
           toolbar: customToolbar,
           event: CalendarEvent

@@ -11,5 +11,6 @@ export default function transformEvents(events) {
     location: event.location,
     participants: event.participants,
     createdBy: event.createdBy,
+    photos: event.photos,
   }));
 }

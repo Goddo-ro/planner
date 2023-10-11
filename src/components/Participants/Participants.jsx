@@ -5,7 +5,7 @@ const Participants = ({participants}) => {
   return (
     <div className="participants">
       <h3 className="event-container__h3">Участники</h3>
-      <ul className="participants__list">
+      <ul className="participants__list" style={{justifyContent: `${participants.length > 4 ? "space-between" : "unset"}`}}>
         {
           participants.slice(0, participants.length > 6 ? 5 : 6).map(participant => <Participant key={participant.id} participant={participant} />)
         }
