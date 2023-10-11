@@ -1,0 +1,26 @@
+.modal-confirm {
+  padding: 80px 96px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+
+  .modal-confirm__title {
+    text-align: center;
+    max-width: 520px;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 100%; /* 36px */
+    letter-spacing: -0.72px;
+  }
+
+  .modal-confirm__btns {
+    display: flex;
+    gap: 24px;
+
+    button {
+      width: 100px;
+    }
+  }
+}

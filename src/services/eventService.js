@@ -18,3 +18,11 @@ export const joinEvent = async (jwt, eventId) => {
     }
   })
 }
+
+export const leaveEvent = async (jwt, eventId) => {
+  return await $api.post(`/events/${eventId}/leave`, {}, {
+    headers: {
+      "Authorization": `Bearer ${jwt}`
+    }
+  })
+}

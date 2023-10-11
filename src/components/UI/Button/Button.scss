@@ -32,6 +32,11 @@
   }
 }
 
+.btn_outline {
+  background: transparent;
+  color: $main-colors-black;
+}
+
 .btn_disabled {
   border-color: $gray;
   background-color: $gray;
