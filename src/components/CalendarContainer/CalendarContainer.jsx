@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import { useStore } from "effector-react";
 import moment from 'moment/dist/moment';
@@ -6,7 +7,6 @@ import { capitalize } from "../../utils/stringUtils.js";
 import { $curDate, setDate } from "../../store/date.js";
 import "react-big-calendar/lib/sass/styles.scss";
 import "./CalendarContainer.scss";
-import { useEffect, useState } from "react";
 import { useFetching } from "../../hooks/useFetching.js";
 import { getEvents } from "../../services/eventService.js";
 import { $token } from "../../store/auth.js";

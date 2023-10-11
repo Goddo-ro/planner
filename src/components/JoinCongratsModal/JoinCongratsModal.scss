@@ -1,0 +1,58 @@
+@import "src/assets/styles/colors";
+
+.join-congrats-container {
+  min-width: 770px;
+  padding: 88px 171px 64px 80px;
+
+  .join-congrats-container__congrats {
+    margin-bottom: 71px;
+
+    & > *:first-child {
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 18px;
+      font-style: normal;
+      font-weight: bold;
+      line-height: 100%; /* 18px */
+      letter-spacing: -0.36px;
+
+      &:not(:last-child) {
+        margin-bottom: 4px;
+      }
+    }
+  }
+
+  .join-congrats-container__dest > p {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 28px */
+    letter-spacing: -0.4px;
+  }
+
+  .join-congrats-container__time {
+    display: flex;
+    margin-bottom: 8px;
+
+    & > * {
+      font-size: 18px;
+      font-style: normal;
+      font-weight: bold;
+      line-height: 100%; /* 18px */
+      letter-spacing: -0.36px;
+
+      &:not(:last-child) {
+        margin-right: 16px;
+        padding-right: 16px;
+        border-right: 1px solid $dark-gray;
+      }
+    }
+  }
+
+  button {
+    width: fit-content;
+    margin-top: 40px;
+  }
+}

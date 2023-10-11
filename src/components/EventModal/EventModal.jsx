@@ -1,21 +1,36 @@
 import { useStore } from "effector-react";
 import ModalWindow from "../UI/ModalWindow/ModalWindow.jsx";
-import { $eventData, closeEvent, openLogin } from "../../store/modals.js";
-import { $token } from "../../store/auth.js";
+import { $eventData, closeEvent, openError, openJoinCongrats, openLogin } from "../../store/modals.js";
+import { $token, $user } from "../../store/auth.js";
 import { checkIfDateIsExpired, getFormattedTime, getRussianDayOfWeek, getRussianMonth } from "../../utils/dateUtils.js";
 import Participants from "../Participants/Participants.jsx";
 import EventImages from "../EventImages/EventImages.jsx";
 import Button from "../UI/Button/Button.jsx";
 import { AiFillInfoCircle } from "react-icons/ai";
+import { checkIfUserBelongsTo } from "../../utils/eventUtils.js";
+import { joinEvent } from "../../services/eventService.js";
 import "./EventModal.scss";
 
 const EventModal = () => {
   const eventData = useStore($eventData);
   const jwt = useStore($token);
+  const user = useStore($user);
 
   const handleLogin = () => {
     closeEvent();
     openLogin();
+  }
+
+  const handleJoin = () => {
+    joinEvent(jwt, eventData.id)
+      .then(() => {
+        openJoinCongrats(eventData);
+        closeEvent();
+      })
+      .catch(() => {
+        closeEvent();
+        openError();
+      });
   }
 
   return (
@@ -47,7 +62,9 @@ const EventModal = () => {
         {
           !checkIfDateIsExpired(eventData.start) && (!jwt
             ? <p><span onClick={handleLogin} className="error-text">Войдите</span>, чтобы присоединиться к событию</p>
-            : <Button>Присоединиться к событию</Button>)
+            : checkIfUserBelongsTo(eventData.participants, user.id)
+              ? <p className="event-container__leave">Вы присоединились к событию. Если передумали, можете <span className="error-text">отменить участие</span>.</p>
+              : <Button onClick={handleJoin}>Присоединиться к событию</Button>)
         }
       </div>
     </ModalWindow>
