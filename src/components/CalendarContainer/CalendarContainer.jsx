@@ -65,7 +65,7 @@ const CalendarContainer = () => {
           toolbar: customToolbar,
           event: CalendarEvent
         }}
-        timeslots={1} // Set timeslots to 1
+        timeslots={1}
         step={60}
       />
     </div>

@@ -46,7 +46,7 @@ const EmailForm = () => {
 
   return(
     <ModalWindow className="modal__content_login" onClose={closeEmail}>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} style={{padding: "133px 127px", minWidth: "612px"}}>
         <h3 className="h2 form__login-header">Вход</h3>
         <Input value={emailValue}
                type="email"

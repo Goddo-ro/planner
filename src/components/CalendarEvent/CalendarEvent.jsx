@@ -26,7 +26,7 @@ const CalendarEvent = ({ event }) => {
   return (
     <>
       {doesUserBelongs && <div className="circle"/>}
-      <h4 className={`event-content__title ${isExpired ? "expired" : ""}`}>{event.title}</h4>
+      <h4 className={`event-content__title ${isExpired ? "expired" : ""} ${user && user.id === event?.createdBy?.id ? "creator" : ""}`}>{event.title}</h4>
     </>
   );
 }

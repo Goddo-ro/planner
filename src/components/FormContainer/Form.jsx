@@ -1,8 +1,8 @@
 import "./Form.scss";
 
-const Form = ({children, onSubmit}) => {
+const Form = ({children, onSubmit, ...rest}) => {
   return (
-    <form onSubmit={onSubmit} className="form">
+    <form onSubmit={onSubmit} className="form" {...rest}>
       {children}
     </form>
   )

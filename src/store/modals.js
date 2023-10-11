@@ -27,7 +27,7 @@ export const $isErrorShow = createStore(false)
 
 export const openEvent = createEvent();
 export const closeEvent = createEvent();
-export const $isEventShow = createStore(true)
+export const $isEventShow = createStore(false)
   .on(openEvent, () => true)
   .on(closeEvent, () => false);
 export const $eventData = createStore({

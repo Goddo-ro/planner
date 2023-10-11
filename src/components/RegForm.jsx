@@ -71,7 +71,7 @@ const RegForm = () => {
 
   return (
     <ModalWindow className="modal__content_reg" onClose={closeReg}>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} style={{padding: "80px 95px 64px"}}>
         <h3 className="h2">Регистрация</h3>
         <PasswordValidInfo/>
         <FormInputsContainer>
