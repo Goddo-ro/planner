@@ -12,7 +12,7 @@ import { getEvents } from "../../services/eventService.js";
 import { $token } from "../../store/auth.js";
 import transformEvents from "../../utils/transformEvents.js";
 import CalendarEvent from "../CalendarEvent/CalendarEvent.jsx";
-import { openEvent } from "../../store/modals.js";
+import { $eventData, openEvent } from "../../store/modals.js";
 
 moment.updateLocale('ru', ru)
 
@@ -36,6 +36,7 @@ const CalendarContainer = () => {
 
   const curDate = useStore($curDate);
   const jwt = useStore($token);
+  const eventData = useStore($eventData);
 
   const [fetchEvents] = useFetching(async (jwt) => {
     const response = await getEvents(jwt);
@@ -43,8 +44,10 @@ const CalendarContainer = () => {
   });
 
   useEffect(() => {
-    fetchEvents(jwt);
-  }, []);
+    if (!eventData) {
+      fetchEvents(jwt);
+    }
+  }, [eventData]);
 
   const customToolbar = () => <></>
 
