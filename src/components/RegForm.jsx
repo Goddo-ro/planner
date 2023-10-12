@@ -5,7 +5,7 @@ import { $email } from "../store/authForm.js";
 import { useFetching } from "../hooks/useFetching.js";
 import { register } from "../services/userService.js";
 import { isValidPassword } from "../utils/validation.js";
-import Form from "./FormContainer/Form.jsx";
+import Form from "./UI/Form/Form.jsx";
 import FormInputsContainer from "./FormInputsContainer/FormInputsContainer.jsx";
 import ModalWindow from "./UI/ModalWindow/ModalWindow.jsx";
 import Input from "./UI/Input/Input.jsx";

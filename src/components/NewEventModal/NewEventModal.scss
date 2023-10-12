@@ -1,0 +1,30 @@
+.new-event {
+  padding: 64px 80px;
+  min-width: 1076px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: stretch;
+  gap: 64px;
+
+  .new-event__form {
+    margin: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 22px;
+    grid-row-gap: 32px;
+
+    .input-wrapper {
+      max-width: unset;
+    }
+
+    .left {
+      grid-column: 1 / 4;
+    }
+
+    .right {
+      grid-column: 4 / 5;
+    }
+  }
+}

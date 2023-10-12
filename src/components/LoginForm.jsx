@@ -3,7 +3,7 @@ import ModalWindow from "./UI/ModalWindow/ModalWindow.jsx";
 import { useStore } from "effector-react";
 import { closeLogin, openError } from "../store/modals.js";
 import { $email } from "../store/authForm.js";
-import Form from "./FormContainer/Form.jsx";
+import Form from "./UI/Form/Form.jsx";
 import Button from "./UI/Button/Button.jsx";
 import Input from "./UI/Input/Input.jsx";
 import { useFetching } from "../hooks/useFetching.js";

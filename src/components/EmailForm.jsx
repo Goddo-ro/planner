@@ -2,7 +2,7 @@ import ModalWindow from "./UI/ModalWindow/ModalWindow.jsx";
 import { closeEmail, openLogin, openReg } from "../store/modals.js";
 import { useStore } from "effector-react";
 import Button from "./UI/Button/Button.jsx";
-import Form from "./FormContainer/Form.jsx";
+import Form from "./UI/Form/Form.jsx";
 import Input from "./UI/Input/Input.jsx";
 import { $email, setEmail } from "../store/authForm.js";
 import { useFetching } from "../hooks/useFetching.js";
