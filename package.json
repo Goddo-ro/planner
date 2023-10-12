@@ -14,6 +14,7 @@
     "effector": "^22.8.6",
     "effector-localstorage": "^1.0.0",
     "effector-react": "^22.5.4",
+    "formik": "^2.4.5",
     "moment": "^2.29.4",
     "moment-with-locales-es6": "^1.0.1",
     "react": "^18.2.0",

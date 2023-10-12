@@ -61,10 +61,10 @@ const Input = ({
           type === "password" && value && <PasswordHandler type={passType} onClick={handlePassShow} />
         }
         {
-          type !== "password" && value !== "" &&
+          type !== "password" && value &&
           <AiOutlineClose
             onClick={() => {
-              onChange({ target: { value: "" } })
+              onChange({ target: { name: name, value: "" } })
               inputRef.current && inputRef.current.focus();
             }}
             className="input-wrapper__reset"
