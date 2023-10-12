@@ -4,7 +4,6 @@ import { useStore } from "effector-react";
 import { $user } from "../../store/auth.js";
 import { checkIfDateIsExpired } from "../../utils/dateUtils.js";
 import "./CalendarEvent.scss";
-import { $eventData } from "../../store/modals.js";
 
 const CalendarEvent = ({ event }) => {
   const [isExpired, setIsExpired] = useState(false);
