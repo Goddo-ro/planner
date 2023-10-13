@@ -1,9 +1,9 @@
-import { useState } from "react";
 import { useFormik } from "formik";
 import ModalWindow from "../UI/ModalWindow/ModalWindow.jsx";
 import Form from "../UI/Form/Form.jsx";
 import Input from "../UI/Input/Input.jsx";
 import { closeNewEvent } from "../../store/modals.js";
+import DateInput from "../UI/DateInput/DateInput.jsx";
 import "./NewEventModal.scss";
 
 const validate = values => {
@@ -19,6 +19,8 @@ const NewEventModal = () => {
   const formik = useFormik({
     initialValues: {
       title: '',
+      startDate: null,
+      endDate: null,
     },
     validate,
     onSubmit: values => {
@@ -39,7 +41,16 @@ const NewEventModal = () => {
           onChange={formik.handleChange}
           error={formik.errors.title}
         />
-        <div className="new-event__date-container right"></div>
+        <div className="new-event__date-container right">
+          <DateInput placeholder={"Начало"}
+                     value={formik.values.startDate}
+                     onChange={(e) => formik.handleChange({target: {name: "startDate", value: e}})}
+          />
+          <DateInput placeholder={"Конец"}
+                     value={formik.values.endDate}
+                     onChange={(e) => formik.handleChange({target: {name: "endDate", value: e}})}
+          />
+        </div>
       </Form>
     </ModalWindow>
   )

@@ -1,3 +1,5 @@
+@import "src/assets/styles/colors";
+
 .new-event {
   padding: 64px 80px;
   min-width: 1076px;
@@ -17,6 +19,7 @@
 
     .input-wrapper {
       max-width: unset;
+      border-color: $dark-gray;
     }
 
     .left {
@@ -24,7 +27,13 @@
     }
 
     .right {
-      grid-column: 4 / 5;
+      grid-column: 4 / 6;
     }
+  }
+
+  .new-event__date-container {
+    display: flex;
+    gap: 8px;
+    height: 100%;
   }
 }
