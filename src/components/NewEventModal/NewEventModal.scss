@@ -45,9 +45,11 @@
     gap: 8px;
     height: 100%;
     width: 100%;
+    max-width: 100%;
 
     .react-datepicker-wrapper {
-      width: calc(50% - 4px);
+      min-width: calc(50% - 4px);
+      max-width: calc(50% - 4px);
     }
 
     svg {
@@ -82,5 +84,9 @@
       background-position: bottom;
       padding: 0;
     }
+  }
+
+  .btn {
+    width: fit-content;
   }
 }

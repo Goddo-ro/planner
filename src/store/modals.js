@@ -48,7 +48,7 @@ export const $isJoinCongratsShow = createStore(false)
 // New event modal
 export const openNewEvent = createEvent();
 export const closeNewEvent = createEvent();
-export const $isNewEventShow = createStore(false)
+export const $isNewEventShow = createStore(true)
   .on(openNewEvent, () => true)
   .on(closeNewEvent, () => false)
 

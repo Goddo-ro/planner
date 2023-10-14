@@ -1,19 +1,19 @@
+import { useState } from "react";
 import { useFormik } from "formik";
+import { useStore } from "effector-react";
 import ModalWindow from "../UI/ModalWindow/ModalWindow.jsx";
 import Form from "../UI/Form/Form.jsx";
 import Input from "../UI/Input/Input.jsx";
-import { closeNewEvent, openError, openNewCongrats } from "../../store/modals.js";
-import DateInput from "../UI/DateInput/DateInput.jsx";
-import Textarea from "../Textarea/Textarea.jsx";
-import "./NewEventModal.scss";
+import ConfirmDialog from "../UI/ConfirmDialog/ConfirmDialog.jsx";
 import Button from "../UI/Button/Button.jsx";
-import { useStore } from "effector-react";
+import DateInput from "../UI/DateInput/DateInput.jsx";
+import Textarea from "../UI/Textarea/Textarea.jsx";
+import { closeNewEvent, openError, openNewCongrats } from "../../store/modals.js";
 import { $token, $user } from "../../store/auth.js";
 import { useFetching } from "../../hooks/useFetching.js";
 import { createEvent } from "../../services/eventService.js";
 import { updateTime } from "../../utils/dateUtils.js";
-import { useState } from "react";
-import ConfirmDialog from "../UI/ConfirmDialog/ConfirmDialog.jsx";
+import "./NewEventModal.scss";
 
 const validate = values => {
   const errors = {};

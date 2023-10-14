@@ -38,7 +38,7 @@ const Input = ({
     <>
       <div className={`input-wrapper ${className ? className : ''}`}>
         <input
-          type={type === "password" ? passType : type}
+          type={type === "password" ? passType : type !== "time" ? type : isInputActive ? "time" : "text"}
           id={label}
           value={value}
           name={name}
