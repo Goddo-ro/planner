@@ -51,6 +51,6 @@ export const $joinEventData = createStore(null)
 // New event modal
 export const openNewEvent = createEvent();
 export const closeNewEvent = createEvent();
-export const $isNewEventShow = createStore(true)
+export const $isNewEventShow = createStore(false)
   .on(openNewEvent, () => true)
   .on(closeNewEvent, () => false)
