@@ -44,9 +44,6 @@ export const closeJoinCongrats = createEvent();
 export const $isJoinCongratsShow = createStore(false)
   .on(openJoinCongrats, () => true)
   .on(closeJoinCongrats, () => false)
-export const $joinEventData = createStore(null)
-  .on(openJoinCongrats, (state, payload) => payload)
-  .on(closeJoinCongrats, () => null);
 
 // New event modal
 export const openNewEvent = createEvent();
@@ -54,3 +51,16 @@ export const closeNewEvent = createEvent();
 export const $isNewEventShow = createStore(false)
   .on(openNewEvent, () => true)
   .on(closeNewEvent, () => false)
+
+// New event congrats modal
+export const openNewCongrats = createEvent();
+export const closeNewCongrats = createEvent();
+export const $isNewCongratsShow = createStore(false)
+  .on(openNewCongrats, () => true)
+  .on(closeNewCongrats, () => false)
+
+export const $congratsEventData = createStore(null)
+  .on(openJoinCongrats, (state, payload) => payload)
+  .on(closeJoinCongrats, () => null)
+  .on(openNewCongrats, (state, payload) => payload)
+  .on(closeNewCongrats, () => null);

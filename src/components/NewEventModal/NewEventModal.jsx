@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import ModalWindow from "../UI/ModalWindow/ModalWindow.jsx";
 import Form from "../UI/Form/Form.jsx";
 import Input from "../UI/Input/Input.jsx";
-import { closeNewEvent } from "../../store/modals.js";
+import { closeNewEvent, openError, openNewCongrats } from "../../store/modals.js";
 import DateInput from "../UI/DateInput/DateInput.jsx";
 import Textarea from "../Textarea/Textarea.jsx";
 import "./NewEventModal.scss";
@@ -12,6 +12,8 @@ import { $token, $user } from "../../store/auth.js";
 import { useFetching } from "../../hooks/useFetching.js";
 import { createEvent } from "../../services/eventService.js";
 import { updateTime } from "../../utils/dateUtils.js";
+import { useState } from "react";
+import ConfirmDialog from "../UI/ConfirmDialog/ConfirmDialog.jsx";
 
 const validate = values => {
   const errors = {};
@@ -35,12 +37,20 @@ const validate = values => {
 }
 
 const NewEventModal = () => {
+  const [isConfirmShow, setIsConfirmShow] = useState(false);
+
   const user = useStore($user);
   const token = useStore($token);
 
   const [createEventFetch] = useFetching(async (jwt, eventData) => {
-    const response = await createEvent(jwt, eventData);
-    console.log(response);
+    try {
+      await createEvent(jwt, eventData);
+      closeNewEvent();
+      openNewCongrats({...eventData, start: eventData.dateStart});
+    } catch (e) {
+      closeNewEvent();
+      openError();
+    }
   });
 
   const formik = useFormik({
@@ -60,10 +70,11 @@ const NewEventModal = () => {
 
       createEventFetch(token, eventData);
     }
-  })
+  });
 
   return (
-    <ModalWindow className="new-event" onClose={closeNewEvent}>
+    <>
+      <ModalWindow className="new-event" onClose={() => setIsConfirmShow(true)}>
       <h3 className="h2 new-event__title">Создание события</h3>
       <Form className="new-event__form" onSubmit={formik.handleSubmit}>
         <Input
@@ -112,6 +123,15 @@ const NewEventModal = () => {
       </Form>
       <Button onClick={formik.handleSubmit} disabled={Object.keys(formik.errors).length}>Создать</Button>
     </ModalWindow>
+      {
+        isConfirmShow &&
+        <ConfirmDialog
+          body="Передумали создавать событие?"
+          onClose={() => setIsConfirmShow(false)}
+          onConfirm={closeNewEvent}
+        />
+      }
+    </>
   )
 }
 

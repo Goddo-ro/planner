@@ -7,13 +7,14 @@ import {
   $isErrorShow,
   $isEventShow,
   $isJoinCongratsShow,
-  $isLoginShow, $isNewEventShow,
+  $isLoginShow, $isNewCongratsShow, $isNewEventShow,
   $isRegShow
 } from "../store/modals.js";
 import ErrorModal from "./ErrorModal/ErrorModal.jsx";
 import EventModal from "./EventModal/EventModal.jsx";
 import JoinCongratsModal from "./JoinCongratsModal/JoinCongratsModal.jsx";
 import NewEventModal from "./NewEventModal/NewEventModal.jsx";
+import NewEventCongratsModal from "./NewEventCongratsModal/NewEventCongratsModal.jsx";
 
 const ModalProvider = () => {
   const isEmailShow = useStore($isEmailShow);
@@ -23,6 +24,7 @@ const ModalProvider = () => {
   const isEventShow = useStore($isEventShow);
   const isJoinCongratsShow = useStore($isJoinCongratsShow);
   const isNewEventSHow = useStore($isNewEventShow);
+  const isNewCongratsShow = useStore($isNewCongratsShow);
 
   return(
     <>
@@ -46,6 +48,9 @@ const ModalProvider = () => {
       }
       {
         isNewEventSHow && <NewEventModal/>
+      }
+      {
+        isNewCongratsShow && <NewEventCongratsModal/>
       }
     </>
   )

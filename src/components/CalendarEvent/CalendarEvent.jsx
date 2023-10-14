@@ -17,7 +17,7 @@ const CalendarEvent = ({ event }) => {
   return (
     <>
       {checkIfUserBelongsTo(event?.participants, user?.id) && <div className="circle"/>}
-      <span className={`event-content__title ${isExpired ? "expired" : ""} ${user && user.id === event?.createdBy?.id ? "creator" : ""}`}>{event.title}</span>
+      <span className={`event-content__title ${isExpired ? "expired" : ""} ${user && user?.id === event?.createdBy?.id ? "creator" : ""}`}>{event.title}</span>
     </>
   );
 }

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Button from "../UI/Button/Button.jsx";
 import { getMe } from "../../services/userService.js";
 import { useFetching } from "../../hooks/useFetching.js";
-import { openEmail } from "../../store/modals.js";
+import { openEmail, openNewEvent } from "../../store/modals.js";
 import {$token, $user, loginEvent, logout} from "../../store/auth.js";
 import PlusWhiteIcon from "../../assets/icons/plus.svg";
 import PlusBlackIcon from "../../assets/icons/plusBlack.svg";
@@ -46,6 +46,7 @@ const EnteredUserContainer = () => {
         onMouseLeave={() => setCurIcon(PlusWhiteIcon)}
         onFocus={() => setCurIcon(PlusBlackIcon)}
         onBlur={() => setCurIcon(PlusWhiteIcon)}
+        onClick={openNewEvent}
       >
         <img src={curIcon} alt="new event"/>
       </Button>

@@ -1,19 +1,23 @@
-import ModalWindow from "../UI/ModalWindow/ModalWindow.jsx";
-import { $congratsEventData, closeJoinCongrats } from "../../store/modals.js";
-import Button from "../UI/Button/Button.jsx";
 import { useStore } from "effector-react";
+import { $congratsEventData, closeJoinCongrats, closeNewCongrats } from "../../store/modals.js";
 import { getFormattedTime, getRussianDayOfWeek, getRussianMonth } from "../../utils/dateUtils.js";
-import "./JoinCongratsModal.scss";
+import Button from "../UI/Button/Button.jsx";
+import ModalWindow from "../UI/ModalWindow/ModalWindow.jsx";
 
-const JoinCongratsModal = () => {
+const NewEventCongratsModal = () => {
   const eventData = useStore($congratsEventData);
 
   return (
-    <ModalWindow onClose={closeJoinCongrats}>
-      <div className="join-congrats-container">
+    <ModalWindow onClose={closeNewCongrats}>
+      <div className="join-congrats-container"
+           style={{
+             backgroundImage: "url('public/unicorn_02.png')",
+             backgroundPosition: "right",
+           }}
+      >
         <div className="join-congrats-container__congrats">
-          <h3 className="h1">Поздравляем!</h3>
-          <p>Вы теперь участник события:</p>
+          <h3 className="h1">Ура!</h3>
+          <p>Вы добавили новое событие:</p>
           <p className="error-text">{eventData?.title}</p>
         </div>
         <div className="join-congrats-container__dest">
@@ -24,10 +28,10 @@ const JoinCongratsModal = () => {
           </ul>
           <p>{eventData?.location}</p>
         </div>
-        <Button onClick={closeJoinCongrats}>Отлично</Button>
+        <Button onClick={closeNewCongrats}>Отлично</Button>
       </div>
     </ModalWindow>
   )
 }
 
-export default JoinCongratsModal;
+export default NewEventCongratsModal;
