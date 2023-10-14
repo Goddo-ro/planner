@@ -26,3 +26,12 @@ export const leaveEvent = async (jwt, eventId) => {
     }
   })
 }
+
+export const createEvent = async (jwt, eventData) => {
+  return await $api.post(`events`, eventData, {
+    headers: {
+      "Authorization": `Bearer ${jwt}`,
+      "Content-Type": "application/json",
+    }
+  })
+}

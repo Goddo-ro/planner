@@ -3,6 +3,7 @@
 .new-event {
   padding: 64px 80px;
   min-width: 1076px;
+  max-width: 1076px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +14,8 @@
     margin: 0;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     grid-column-gap: 22px;
     grid-row-gap: 32px;
 
@@ -23,11 +25,18 @@
     }
 
     .left {
-      grid-column: 1 / 4;
+      grid-column: 1 / 6;
     }
 
     .right {
-      grid-column: 4 / 6;
+      width: 100%;
+      grid-column: 6 / 9;
+    }
+
+    textarea {
+      height: 100%;
+      background: gray;
+      grid-row: 2 / 4;
     }
   }
 
@@ -35,5 +44,43 @@
     display: flex;
     gap: 8px;
     height: 100%;
+    width: 100%;
+
+    .react-datepicker-wrapper {
+      width: calc(50% - 4px);
+    }
+
+    svg {
+      padding: 0;
+    }
+
+    input {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  .creator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    p {
+      font-family: 'TT Commons', serif;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 100%; /* 18px */
+      letter-spacing: -0.36px;
+    }
+
+    .user-icon-container {
+      border: none;
+      width: 40px;
+      height: 40px;
+      background-size: contain;
+      background-position: bottom;
+      padding: 0;
+    }
   }
 }

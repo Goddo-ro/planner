@@ -76,3 +76,7 @@
   position: absolute;
   color: $main-colors-accent;
 }
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background: none;
+}

@@ -24,3 +24,10 @@ export function getFormattedTime(dateString) {
   const date = new Date(dateString);
   return `${formatNumber(date.getHours())}:${formatNumber(date.getMinutes())}`;
 }
+
+export function updateTime(dateString, newTime) {
+  const date = new Date(dateString);
+  const [newHours, newMinutes] = newTime.split(":");
+  date.setHours(newHours, newMinutes);
+  return date;
+}
