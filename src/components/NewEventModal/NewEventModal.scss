@@ -41,10 +41,14 @@
 
   .new-event__date-container {
     display: flex;
-    gap: 8px;
     height: 100%;
     width: 100%;
     max-width: 100%;
+    position: relative;
+
+    & > *:first-child {
+      margin-right: 8px;
+    }
 
     .react-datepicker-wrapper {
       min-width: calc(50% - 4px);

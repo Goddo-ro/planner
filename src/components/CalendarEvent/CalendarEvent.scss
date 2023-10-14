@@ -28,8 +28,8 @@
 
   .circle {
     background: $main-colors-accent;
-    width: 8px;
-    height: 8px;
+    min-width: 8px;
+    min-height: 8px;
     border-radius: 50%;
     gap: 4px;
   }
