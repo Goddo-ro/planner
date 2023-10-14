@@ -25,6 +25,10 @@ const validate = values => {
     errors.dateStart = "Обязательное поле";
   }
 
+  if (!values.description) {
+    errors.description = "Обязательное поле";
+  }
+
   if (!values.time) {
     errors.time = "Обязательное поле"
   }
@@ -96,7 +100,15 @@ const NewEventModal = () => {
                      onChange={(e) => formik.handleChange({target: {name: "dateEnd", value: e}})}
           />
         </div>
-        <Textarea className="left"/>
+        <Textarea
+          className="left description"
+          placeholder="Описание"
+          name="description"
+          value={formik.values.description}
+          onChange={formik.handleChange}
+          error={formik.errors.description}
+          isRequired
+        />
         <Input
           type="time"
           isRequired
