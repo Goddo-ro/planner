@@ -37,7 +37,6 @@ const User = () => {
 
 const EnteredUserContainer = () => {
   const [curIcon, setCurIcon] = useState(PlusWhiteIcon);
-  const [isExitShow, setIsExitShow] = useState(false);
 
   return (
     <div className="entered-user-container">

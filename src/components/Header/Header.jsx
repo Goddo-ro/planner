@@ -1,6 +1,6 @@
-import "./Header.scss";
 import User from "../User/User.jsx";
 import MonthSwitcher from "../MonthSwitcher/MonthSwitcher.jsx";
+import "./Header.scss";
 
 const Header = () => {
   return (

@@ -26,3 +26,11 @@ export const getMe = async (token) => {
     }
   })
 }
+
+export const getAllUsers = async (token) => {
+  return await $api.get('/users', {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  })
+}

@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { useFormik } from "formik";
 import { useStore } from "effector-react";
+import { closeNewEvent, openError, openNewCongrats } from "../../store/modals.js";
+import { $token, $user } from "../../store/auth.js";
+import { useFetching } from "../../hooks/useFetching.js";
+import { createEvent } from "../../services/eventService.js";
+import { updateTime } from "../../utils/dateUtils.js";
 import ModalWindow from "../UI/ModalWindow/ModalWindow.jsx";
 import Form from "../UI/Form/Form.jsx";
 import Input from "../UI/Input/Input.jsx";
@@ -8,11 +13,7 @@ import ConfirmDialog from "../UI/ConfirmDialog/ConfirmDialog.jsx";
 import Button from "../UI/Button/Button.jsx";
 import DateInput from "../UI/DateInput/DateInput.jsx";
 import Textarea from "../UI/Textarea/Textarea.jsx";
-import { closeNewEvent, openError, openNewCongrats } from "../../store/modals.js";
-import { $token, $user } from "../../store/auth.js";
-import { useFetching } from "../../hooks/useFetching.js";
-import { createEvent } from "../../services/eventService.js";
-import { updateTime } from "../../utils/dateUtils.js";
+import UsersInput from "../UI/UsersInput/UsersInput.jsx";
 import "./NewEventModal.scss";
 
 const validate = values => {
@@ -65,11 +66,12 @@ const NewEventModal = () => {
       description: '',
       time: '',
       location: '',
+      participants: [],
     },
     validate,
     onSubmit: values => {
       const eventData = {...values};
-      eventData.participants = [user?.id];
+      eventData.participants = [user?.id, ...eventData.participants.map(user => user.id)];
       eventData.dateStart = updateTime(eventData.dateStart, eventData.time);
 
       createEventFetch(token, eventData);
@@ -128,8 +130,12 @@ const NewEventModal = () => {
           onChange={formik.handleChange}
           error={formik.errors.location}
         />
-        <Input
+        <UsersInput
           className="left"
+          name="participants"
+          placeholder="Участники"
+          value={formik.values.participants}
+          onChange={formik.handleChange}
         />
         <Creator user={user} />
       </Form>

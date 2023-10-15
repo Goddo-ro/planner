@@ -14,6 +14,10 @@
     flex-direction: row-reverse;
     align-items: center;
 
+    input::first-letter {
+      color: pink;
+    }
+
     svg {
       font-size: 32px;
     }
