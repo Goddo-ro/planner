@@ -42,6 +42,10 @@
       height: 100%;
       grid-row: 2 / 4;
     }
+
+    .image-chooser {
+      grid-row: 5 / 7;
+    }
   }
 
   .new-event__date-container {

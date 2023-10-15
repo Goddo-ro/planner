@@ -14,6 +14,7 @@ import Button from "../UI/Button/Button.jsx";
 import DateInput from "../UI/DateInput/DateInput.jsx";
 import Textarea from "../UI/Textarea/Textarea.jsx";
 import UsersInput from "../UI/UsersInput/UsersInput.jsx";
+import ImagesChooser from "../UI/ImagesChooser/ImagesChooser.jsx";
 import "./NewEventModal.scss";
 
 const validate = values => {
@@ -67,6 +68,7 @@ const NewEventModal = () => {
       time: '',
       location: '',
       participants: [],
+      images: [],
     },
     validate,
     onSubmit: values => {
@@ -138,6 +140,12 @@ const NewEventModal = () => {
           onChange={formik.handleChange}
         />
         <Creator user={user} />
+        <ImagesChooser
+          className="left"
+          name="images"
+          value={formik.values.images}
+          onChange={formik.handleChange}
+        />
       </Form>
       <Button onClick={formik.handleSubmit} disabled={Object.keys(formik.errors).length}>Создать</Button>
     </ModalWindow>
