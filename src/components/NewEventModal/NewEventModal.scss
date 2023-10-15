@@ -20,6 +20,10 @@
     grid-column-gap: 22px;
     grid-row-gap: 32px;
 
+    & > * {
+      max-height: 170px;
+    }
+
     .active {
       border-color: $main-colors-black;
     }
@@ -43,7 +47,8 @@
       grid-row: 2 / 4;
     }
 
-    .image-chooser {
+    .image-chooser,
+    .new-event__images {
       grid-row: 5 / 7;
     }
   }

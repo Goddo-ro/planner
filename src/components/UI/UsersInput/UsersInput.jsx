@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { useStore } from "effector-react";
+import { AiOutlineClose } from "react-icons/ai";
 import { $user, $token } from "../../../store/auth.js";
 import { useFetching } from "../../../hooks/useFetching.js";
 import { getAllUsers } from "../../../services/userService.js";
-import "./UsersInput.scss";
 import { getValidUsers } from "../../../utils/validation.js";
-import { AiOutlineClose } from "react-icons/ai";
+import "./UsersInput.scss";
 
 const UsersInput = ({
   name,

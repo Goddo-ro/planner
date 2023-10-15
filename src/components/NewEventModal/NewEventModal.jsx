@@ -15,6 +15,7 @@ import DateInput from "../UI/DateInput/DateInput.jsx";
 import Textarea from "../UI/Textarea/Textarea.jsx";
 import UsersInput from "../UI/UsersInput/UsersInput.jsx";
 import ImagesChooser from "../UI/ImagesChooser/ImagesChooser.jsx";
+import NewEventImages from "../NewEventImages/NewEventImages.jsx";
 import "./NewEventModal.scss";
 
 const validate = values => {
@@ -142,6 +143,12 @@ const NewEventModal = () => {
         <Creator user={user} />
         <ImagesChooser
           className="left"
+          name="images"
+          value={formik.values.images}
+          onChange={formik.handleChange}
+        />
+        <NewEventImages
+          className="right"
           name="images"
           value={formik.values.images}
           onChange={formik.handleChange}
