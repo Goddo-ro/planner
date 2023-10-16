@@ -1,8 +1,8 @@
-import ModalWindow from "../UI/ModalWindow/ModalWindow.jsx";
-import { $congratsEventData, closeJoinCongrats } from "../../store/modals.js";
-import Button from "../UI/Button/Button.jsx";
 import { useStore } from "effector-react";
+import { $congratsEventData, closeJoinCongrats } from "../../store/modals.js";
 import { getFormattedTime, getRussianDayOfWeek, getRussianMonth } from "../../utils/dateUtils.js";
+import ModalWindow from "../UI/ModalWindow/ModalWindow.jsx";
+import Button from "../UI/Button/Button.jsx";
 import "./JoinCongratsModal.scss";
 
 const JoinCongratsModal = () => {
@@ -10,7 +10,7 @@ const JoinCongratsModal = () => {
 
   return (
     <ModalWindow onClose={closeJoinCongrats}>
-      <div className="join-congrats-container">
+      <div className="join-congrats-container" style={{backgroundImage: "url(public/hand.png)"}}>
         <div className="join-congrats-container__congrats">
           <h3 className="h1">Поздравляем!</h3>
           <p>Вы теперь участник события:</p>
