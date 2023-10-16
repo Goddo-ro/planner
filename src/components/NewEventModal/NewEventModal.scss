@@ -21,7 +21,7 @@
     grid-row-gap: 32px;
 
     & > * {
-      max-height: 170px;
+      max-height: 160px;
     }
 
     .active {
@@ -55,7 +55,6 @@
 
   .new-event__date-container {
     display: flex;
-    height: 100%;
     width: 100%;
     max-width: 100%;
     position: relative;

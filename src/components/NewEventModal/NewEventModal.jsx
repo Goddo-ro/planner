@@ -5,6 +5,7 @@ import { closeNewEvent, openError, openNewCongrats } from "../../store/modals.js
 import { $token, $user } from "../../store/auth.js";
 import { useFetching } from "../../hooks/useFetching.js";
 import { createEvent } from "../../services/eventService.js";
+import { uploadImages } from "../../services/fileService.js";
 import { updateTime } from "../../utils/dateUtils.js";
 import ModalWindow from "../UI/ModalWindow/ModalWindow.jsx";
 import Form from "../UI/Form/Form.jsx";
@@ -44,6 +45,7 @@ const validate = values => {
 }
 
 const NewEventModal = () => {
+  const [photosId, setPhotoId] = useState([]);
   const [isConfirmShow, setIsConfirmShow] = useState(false);
 
   const user = useStore($user);
@@ -69,15 +71,23 @@ const NewEventModal = () => {
       time: '',
       location: '',
       participants: [],
-      images: [],
+      photos: [],
     },
     validate,
     onSubmit: values => {
-      const eventData = {...values};
-      eventData.participants = [user?.id, ...eventData.participants.map(user => user.id)];
-      eventData.dateStart = updateTime(eventData.dateStart, eventData.time);
+      uploadImages(values.photos, token)
+        .then(res => {
+          const eventData = {...values};
+          eventData.participants = [user?.id, ...eventData.participants.map(user => user.id)];
+          eventData.dateStart = updateTime(eventData.dateStart, eventData.time);
+          eventData.photos = res.data.map(photo => photo.id);
 
-      createEventFetch(token, eventData);
+          createEventFetch(token, eventData);
+        })
+        .catch(() => {
+          closeNewEvent();
+          openError();
+        })
     }
   });
 
@@ -143,18 +153,21 @@ const NewEventModal = () => {
         <Creator user={user} />
         <ImagesChooser
           className="left"
-          name="images"
-          value={formik.values.images}
+          name="photos"
+          value={formik.values.photos}
           onChange={formik.handleChange}
         />
         <NewEventImages
           className="right"
-          name="images"
-          value={formik.values.images}
+          name="photos"
+          value={formik.values.photos}
           onChange={formik.handleChange}
         />
       </Form>
-      <Button onClick={formik.handleSubmit} disabled={Object.keys(formik.errors).length}>Создать</Button>
+      <Button
+        onClick={formik.handleSubmit}
+        // disabled={Object.keys(formik.errors).length}
+      >Создать</Button>
     </ModalWindow>
       {
         isConfirmShow &&
