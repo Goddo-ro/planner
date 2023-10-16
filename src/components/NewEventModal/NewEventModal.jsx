@@ -80,11 +80,11 @@ const NewEventModal = () => {
           const eventData = {...values};
           eventData.participants = [user?.id, ...eventData.participants.map(user => user.id)];
           eventData.dateStart = updateTime(eventData.dateStart, eventData.time);
-          eventData.photos = res.data.map(photo => photo.id);
+          eventData.photos = res?.data?.map(photo => photo.id);
 
           createEventFetch(token, eventData);
         })
-        .catch(() => {
+        .catch((e) => {
           closeNewEvent();
           openError();
         })
