@@ -45,7 +45,6 @@ const validate = values => {
 }
 
 const NewEventModal = () => {
-  const [photosId, setPhotoId] = useState([]);
   const [isConfirmShow, setIsConfirmShow] = useState(false);
 
   const user = useStore($user);
@@ -84,7 +83,7 @@ const NewEventModal = () => {
 
           createEventFetch(token, eventData);
         })
-        .catch((e) => {
+        .catch(() => {
           closeNewEvent();
           openError();
         })
@@ -166,7 +165,7 @@ const NewEventModal = () => {
       </Form>
       <Button
         onClick={formik.handleSubmit}
-        // disabled={Object.keys(formik.errors).length}
+        disabled={Object.keys(formik.errors).length}
       >Создать</Button>
     </ModalWindow>
       {

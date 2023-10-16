@@ -10,7 +10,7 @@ export default function transformEvents(events) {
     description: event.description,
     location: event.location,
     participants: event.participants,
-    createdBy: event.createdBy,
     photos: event.photos,
+    owner: event.owner,
   }));
 }

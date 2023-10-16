@@ -67,7 +67,7 @@ const EventModal = () => {
             </div>
             <p className="event-container__description">{eventData.description}</p>
           </div>
-          <Participants participants={eventData.participants}/>
+          <Participants participants={eventData.participants} owner={eventData.owner}/>
           {
             eventData.photos && <EventImages images={eventData.photos}/>
           }
