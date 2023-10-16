@@ -1,17 +1,17 @@
+import { useState } from "react";
 import { useStore } from "effector-react";
-import ModalWindow from "../UI/ModalWindow/ModalWindow.jsx";
+import { AiFillInfoCircle } from "react-icons/ai";
 import { $eventData, closeEvent, openError, openJoinCongrats, openLogin } from "../../store/modals.js";
 import { $token, $user } from "../../store/auth.js";
+import { checkIfUserBelongsTo } from "../../utils/eventUtils.js";
 import { checkIfDateIsExpired, getFormattedTime, getRussianDayOfWeek, getRussianMonth } from "../../utils/dateUtils.js";
+import { joinEvent, leaveEvent } from "../../services/eventService.js";
+import ModalWindow from "../UI/ModalWindow/ModalWindow.jsx";
+import ConfirmDialog from "../UI/ConfirmDialog/ConfirmDialog.jsx";
+import Button from "../UI/Button/Button.jsx";
 import Participants from "../Participants/Participants.jsx";
 import EventImages from "../EventImages/EventImages.jsx";
-import Button from "../UI/Button/Button.jsx";
-import { AiFillInfoCircle } from "react-icons/ai";
-import { checkIfUserBelongsTo } from "../../utils/eventUtils.js";
-import { joinEvent, leaveEvent } from "../../services/eventService.js";
 import "./EventModal.scss";
-import ConfirmDialog from "../UI/ConfirmDialog/ConfirmDialog.jsx";
-import { useState } from "react";
 
 const EventModal = () => {
   const [isConfirmShow, setIsConfirmShow] = useState(false);
