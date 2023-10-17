@@ -1,14 +1,19 @@
 .modal {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
   background-color: rgba(0, 0, 0, .4);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100;
+  width: 100vw;
+  max-width: unset;
+  height: 100vh;
+  max-height: unset;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  &::backdrop {
+    display: none;
+  }
 
   .modal__content {
     position: relative;
@@ -25,5 +30,12 @@
     right: 40px;
     top: 40px;
     z-index: 10;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+
+    &:focus {
+      background: rgba(0, 0, 0, .1);
+    }
   }
 }
