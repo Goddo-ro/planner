@@ -25,7 +25,7 @@ const ModalWindow = ({isShow = true, onClose, children, className}) => {
       ref={dialogRef}
     >
       <div className={`modal__content ${className}`}>
-        <button tabIndex={0} disabled={false} role="button" className="modal__close" onClick={onClose}>
+        <button role="button" className="modal__close" onClick={onClose}>
           <AiOutlineClose size={32} fill="#B3B3BC" color="#B3B3BC" />
         </button>
         {children}

@@ -1,10 +1,10 @@
 import { useStore } from "effector-react";
 import { useEffect, useState } from "react";
-import Button from "../UI/Button/Button.jsx";
 import { getMe } from "../../services/userService.js";
 import { useFetching } from "../../hooks/useFetching.js";
 import { openEmail, openNewEvent } from "../../store/modals.js";
-import {$token, $user, loginEvent, logout} from "../../store/auth.js";
+import { $token, $user, loginEvent, logout } from "../../store/auth.js";
+import Button from "../UI/Button/Button.jsx";
 import PlusWhiteIcon from "../../assets/icons/plus.svg";
 import PlusBlackIcon from "../../assets/icons/plusBlack.svg";
 import "./User.scss";
@@ -15,7 +15,7 @@ const User = () => {
 
   const [getUser] = useFetching(async (token) => {
     const response = await getMe(token);
-    loginEvent({jwt, user: response?.data});
+    loginEvent({ jwt, user: response?.data });
   });
 
   useEffect(() => {

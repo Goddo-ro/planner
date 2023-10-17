@@ -10,14 +10,6 @@
   button {
     width: 90px;
     padding: 19px 32px;
-
-    &:hover,
-    &:focus,
-    &:active {
-      img {
-        filter: invert(0%) sepia(100%) saturate(7500%) hue-rotate(77deg) brightness(103%) contrast(108%);
-      }
-    }
   }
 }
 
