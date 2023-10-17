@@ -6,13 +6,13 @@ import ru from 'moment/dist/locale/ru';
 import { capitalize } from "../../utils/stringUtils.js";
 import { $curDate, setDate } from "../../store/date.js";
 import "react-big-calendar/lib/sass/styles.scss";
-import "./CalendarContainer.scss";
 import { useFetching } from "../../hooks/useFetching.js";
 import { getEvents } from "../../services/eventService.js";
 import { $token } from "../../store/auth.js";
 import transformEvents from "../../utils/transformEvents.js";
 import CalendarEvent from "../CalendarEvent/CalendarEvent.jsx";
-import { $eventData, $isNewCongratsShow, $isNewEventShow, openEvent } from "../../store/modals.js";
+import { $eventData, $isNewCongratsShow, openEvent } from "../../store/modals.js";
+import "./CalendarContainer.scss";
 
 moment.updateLocale('ru', ru)
 
@@ -59,7 +59,8 @@ const CalendarContainer = () => {
         startAccessor="start"
         endAccessor="end"
         style={{ height: "calc(100vh - 240px)" }}
-        views={['month']}
+        views={['month', 'list']}
+        popup={true}
         defaultView="month"
         date={curDate}
         events={events}

@@ -50,6 +50,12 @@
   .rbc-off-range {
     color: $out-of-range-text-color;
   }
+
+  .rbc-show-more {
+    margin-left: auto;
+    margin-right: 12px;
+    color: $main-colors-accent;
+  }
 }
 
 .rbc-off-range-bg {
