@@ -1,10 +1,10 @@
 import { useStore } from "effector-react";
 import { $curDate, decreaseMonth, increaseMonth } from "../../store/date.js";
+import { $token } from "../../store/auth.js";
 import { capitalize } from "../../utils/stringUtils.js";
 import arrowLeft from "../../assets/icons/arrowLeft.svg"
 import arrowRight from "../../assets/icons/arrowRight.svg"
 import "./MonthSwitcher.scss";
-import { $token } from "../../store/auth.js";
 
 const MonthSwitcher = () => {
   const date = useStore($curDate);

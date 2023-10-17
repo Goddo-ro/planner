@@ -12,11 +12,37 @@
     border-radius: 24px;
     height: 100%;
     width: 100%;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
   }
 }
 
 .event-container__slider-header {
   margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.custom-arrows-container {
+  display: flex;
+  gap: 8px;
+
+  .calendar-arrow-container {
+    background: $gray;
+    padding: 8px 16px;
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+
+    &.disable img {
+      filter: invert(75%) sepia(8%) saturate(203%) hue-rotate(202deg) brightness(94%) contrast(92%);
+    }
+  }
 }
 
 .react-multi-carousel-dot-list {
