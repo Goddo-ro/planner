@@ -18,6 +18,14 @@
   &.rbc-selected {
     background: $gray;
   }
+
+  &:has(.creator) {
+    background: $main-colors-accent;
+
+    .event-content__title {
+      color: $main-colors-white;
+    }
+  }
 }
 
 .rbc-event-content {
