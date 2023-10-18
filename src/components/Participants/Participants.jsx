@@ -2,6 +2,9 @@ import UserImage from "../../../public/head1(1).png";
 import "./Participants.scss";
 
 const Participants = ({participants, owner}) => {
+  if (owner)
+    participants = [owner, ...participants.filter(participant => participant.id !== owner?.id)];
+
   return (
     <div className="participants">
       <h3 className="event-container__h3">Участники</h3>
