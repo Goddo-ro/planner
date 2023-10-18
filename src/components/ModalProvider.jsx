@@ -1,7 +1,4 @@
-import EmailForm from "./EmailForm.jsx";
-import LoginForm from "./LoginForm.jsx";
 import { useStore } from "effector-react";
-import RegForm from "./RegForm.jsx";
 import {
   $isEmailShow,
   $isErrorShow,
@@ -10,6 +7,9 @@ import {
   $isLoginShow, $isNewCongratsShow, $isNewEventShow,
   $isRegShow
 } from "../store/modals.js";
+import EmailForm from "./EmailForm.jsx";
+import LoginForm from "./LoginForm.jsx";
+import RegForm from "./RegForm.jsx";
 import ErrorModal from "./ErrorModal/ErrorModal.jsx";
 import EventModal from "./EventModal/EventModal.jsx";
 import JoinCongratsModal from "./JoinCongratsModal/JoinCongratsModal.jsx";

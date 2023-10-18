@@ -1,11 +1,14 @@
+import { Suspense, lazy } from "react";
 import Header from "./components/Header/Header.jsx";
-import ModalProvider from "./components/ModalProvider.jsx";
 import CalendarContainer from "./components/CalendarContainer/CalendarContainer.jsx";
+const ModalProvider = lazy(() => import("./components/ModalProvider.jsx"));
 
 function App() {
   return (
     <>
-      <ModalProvider/>
+      <Suspense>
+        <ModalProvider/>
+      </Suspense>
       <Header/>
       <CalendarContainer/>
     </>
